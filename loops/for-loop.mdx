@@ -1,0 +1,115 @@
+---
+title: 'For Loop'
+description: 'Learn how to use for loops in Dart with various iteration patterns'
+---
+
+# For Loop
+
+The `for` loop is one of the most commonly used control flow statements in Dart. It allows you to execute a block of code repeatedly with a counter variable.
+
+## Basic Syntax
+
+```dart
+for (initialization; condition; increment) {
+  // code to execute
+}
+```
+
+## Traditional For Loop
+
+The most common form of the for loop increments from a starting value to an ending value.
+
+```dart
+for (int i = 1; i <= 5; i++) {
+  print('Iteración $i');
+}
+// Salida: Iteración 1, Iteración 2, etc.
+```
+
+<Note>
+  The loop variable `i` is initialized to 1, continues while `i <= 5`, and increments by 1 after each iteration.
+</Note>
+
+## Decrementing Loop
+
+You can also decrement the counter to iterate in reverse order.
+
+```dart
+for (var i = 5; i > 0; i--) {
+  print('Iteración $i');
+}
+```
+
+This loop starts at 5 and counts down to 1.
+
+## Modifying the Loop Variable Inside
+
+You can alter the loop variable within the loop body, which affects the iteration count.
+
+```dart
+for (var i = 0; i <= 10; i++) {
+  print('Iteración $i');
+  i++;
+}
+```
+
+<Warning>
+  Modifying the loop variable inside the loop body can lead to unexpected behavior. In this example, `i` is incremented twice per iteration (once in the loop body and once in the increment expression).
+</Warning>
+
+## Custom Increment Values
+
+You can specify a custom increment value to skip iterations.
+
+```dart
+for (var i = 0; i <= 10; i += 2) {
+  print('Iteración $i');
+}
+```
+
+This loop increments by 2, printing only even numbers: 0, 2, 4, 6, 8, 10.
+
+## Key Points
+
+<CardGroup cols={2}>
+  <Card title="Initialization" icon="play">
+    Set the starting value of your counter variable
+  </Card>
+  <Card title="Condition" icon="check">
+    Define when the loop should continue executing
+  </Card>
+  <Card title="Increment" icon="arrow-up">
+    Specify how the counter changes after each iteration
+  </Card>
+  <Card title="Flexibility" icon="wand-magic-sparkles">
+    Use custom increments or decrements for different patterns
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+```dart
+void main() {
+  // Forma tradicional
+  for (int i = 1; i <= 5; i++) {
+    print('Iteración $i');
+  }
+  // Salida: Iteración 1, Iteración 2, etc.
+
+  //Decrementar en el ciclo
+  for (var i = 5; i > 0; i--) {
+    print('Iteración $i');
+  }
+
+  //Alterar el valor de la literal i
+  for (var i = 0; i <= 10; i++) {
+    print('Iteración $i');
+    i++;
+  }
+
+  //Otra forma de alterar el incremento
+  for (var i = 0; i <= 10; i += 2) {
+    print('Iteración $i');
+  }
+}
+```

@@ -1,0 +1,147 @@
+---
+title: "List Operations"
+description: "Common list operations including querying, searching, and validation methods"
+---
+
+## Querying List Properties
+
+Dart provides several useful properties to inspect your lists.
+
+### Length
+
+Get the number of elements in the list:
+
+```dart
+print('Tamaño de la Lista: ${numeros.length}'); //Cantidad de elementos de la lista
+```
+
+### Empty Checks
+
+Check if a list is empty or has elements:
+
+```dart
+print('Esta Vacia?: ${numeros.isEmpty}'); // ¿Está vacía?
+print('No esta Vacia?: ${numeros.isNotEmpty}'); // ¿Tiene elementos?
+```
+
+### First and Last Elements
+
+Quickly access the first or last element:
+
+```dart
+print('Primer Valor de la Lista: ${numeros.first}'); // Primer elemento
+print('Último Valor de la Lista: ${numeros.last}'); // Último elemento
+```
+
+<Tip>
+  Using `first` and `last` is safer than accessing by index when you're not sure about the list length.
+</Tip>
+
+## Searching in Lists
+
+### contains()
+
+Check if a value exists in the list:
+
+```dart
+print('Existe el 40?: ${numeros.contains(40)}'); // ¿Contiene el 40? true/false
+```
+
+### indexOf()
+
+Find the position of an element:
+
+```dart
+print('Posición: de el 30: ${numeros.indexOf(4086)}'); // ¿En qué posición está 30? Índice
+```
+
+<Note>
+  If the element is not found, `indexOf()` returns -1.
+</Note>
+
+## Safe Element Removal
+
+Combine `indexOf()` with conditional logic for safe removal:
+
+```dart
+if (numeros.indexOf(40) >= 0 ){
+  numeros.removeAt(numeros.indexOf(40));
+  print('Elemento Borrado');
+} else
+  print('Número no Existe');
+```
+
+## Practical Example: Student Grades
+
+Here's a complete example that calculates the average of student grades:
+
+```dart
+void main() {
+  List<int> notas = [85, 92, 78];
+
+  // Agregar una nota
+  notas.add(95);
+
+  // Mostrar cada elemento de la lista
+  for (int nota in notas) {
+    print(nota);
+  }
+
+  // Calcular promedio
+  int suma = 0;
+  for (int nota in notas) {
+    suma += nota;
+  }
+  double promedio = suma / notas.length;
+  print('Promedio: $promedio');
+}
+```
+
+## Complete Reference Example
+
+```dart
+void main() {
+  List<int> numeros = [10, 20, 30];
+  print(numeros);
+
+  // AGREGAR elementos
+  numeros.add(40);
+  print(numeros);
+  numeros.addAll([50, 60]);
+  print(numeros);
+
+  // ELIMINAR elementos
+  numeros.remove(20);
+  print(numeros);
+  numeros.removeAt(0);
+  print(numeros);
+
+  //Imprimir solo el valor de la posición
+  print(numeros[0]);
+  print(numeros[3]);
+
+  // CONSULTAR
+  print('Tamaño de la Lista: ${numeros.length}');
+  print('Esta Vacia?: ${numeros.isEmpty}');
+  print('No esta Vacia?: ${numeros.isNotEmpty}');
+  print('Primer Valor de la Lista: ${numeros.first}');
+  print('Último Valor de la Lista: ${numeros.last}');
+
+  // BÚSQUEDA
+  print('Existe el 40?: ${numeros.contains(40)}');
+  print('Posición: de el 30: ${numeros.indexOf(4086)}');
+  if (numeros.indexOf(40) >= 0 ){
+    numeros.removeAt(numeros.indexOf(40));
+    print('Elemento Borrado');
+  } else
+    print('Número no Existe');
+}
+```
+
+## Summary
+
+- Use `length`, `isEmpty`, `isNotEmpty` to query list state
+- Use `first` and `last` for quick edge element access
+- Use `contains()` to check existence
+- Use `indexOf()` to find element position
+- Always check `indexOf() >= 0` before removing to avoid errors

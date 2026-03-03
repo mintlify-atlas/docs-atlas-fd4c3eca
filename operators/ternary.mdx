@@ -1,0 +1,217 @@
+---
+title: 'Ternary Operator'
+description: 'Learn how to use the ternary conditional operator in Dart for concise conditional expressions'
+---
+
+# Ternary Operator
+
+The ternary operator (also called the conditional operator) is a concise way to write simple `if-else` statements in a single line.
+
+## Syntax
+
+```dart
+condition ? expressionIfTrue : expressionIfFalse
+```
+
+<CardGroup cols={3}>
+  <Card title="Condition" icon="circle-question">
+    A boolean expression to evaluate
+  </Card>
+  <Card title="True Expression" icon="check">
+    Value returned if condition is true
+  </Card>
+  <Card title="False Expression" icon="xmark">
+    Value returned if condition is false
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+Here's a practical example of the ternary operator:
+
+```dart
+void main() {
+  int edad = 16;
+
+  String mensaje = edad >= 18 ? 'Eres mayor' : 'Eres menor';
+  print(mensaje);  // Salida: Eres menor
+  
+}
+```
+
+## How It Works
+
+The ternary operator evaluates a condition:
+- If the condition is `true`, it returns the first expression (after `?`)
+- If the condition is `false`, it returns the second expression (after `:`)
+
+<Steps>
+  <Step title="Evaluate Condition">
+    The condition `edad >= 18` is evaluated
+  </Step>
+  <Step title="Check Result">
+    Since `16 >= 18` is `false`, the operator moves to the false expression
+  </Step>
+  <Step title="Return Value">
+    The string `'Eres menor'` is returned and assigned to `mensaje`
+  </Step>
+</Steps>
+
+## Comparison with If-Else
+
+<CodeGroup>
+```dart Ternary Operator
+int edad = 16;
+String mensaje = edad >= 18 ? 'Eres mayor' : 'Eres menor';
+print(mensaje);
+```
+
+```dart If-Else Statement
+int edad = 16;
+String mensaje;
+
+if (edad >= 18) {
+  mensaje = 'Eres mayor';
+} else {
+  mensaje = 'Eres menor';
+}
+print(mensaje);
+```
+</CodeGroup>
+
+<Tip>
+  The ternary operator is more concise and often more readable for simple conditional assignments.
+</Tip>
+
+## Practical Examples
+
+<AccordionGroup>
+  <Accordion title="Determine Adult Status">
+    ```dart
+    int age = 25;
+    String status = age >= 18 ? 'Adult' : 'Minor';
+    print(status);  // Adult
+    ```
+  </Accordion>
+  
+  <Accordion title="Assign Grade">
+    ```dart
+    int score = 85;
+    String grade = score >= 60 ? 'Pass' : 'Fail';
+    print(grade);  // Pass
+    ```
+  </Accordion>
+  
+  <Accordion title="Check Even or Odd">
+    ```dart
+    int number = 7;
+    String result = number % 2 == 0 ? 'Even' : 'Odd';
+    print(result);  // Odd
+    ```
+  </Accordion>
+  
+  <Accordion title="Set Default Value">
+    ```dart
+    String? username = null;
+    String displayName = username != null ? username : 'Guest';
+    print(displayName);  // Guest
+    ```
+  </Accordion>
+  
+  <Accordion title="Calculate Discount">
+    ```dart
+    bool isMember = true;
+    double price = 100.0;
+    double finalPrice = isMember ? price * 0.9 : price;
+    print(finalPrice);  // 90.0
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Nested Ternary Operators
+
+You can nest ternary operators, but use them sparingly as they can reduce readability:
+
+```dart
+int score = 85;
+
+String grade = score >= 90 ? 'A' :
+               score >= 80 ? 'B' :
+               score >= 70 ? 'C' :
+               score >= 60 ? 'D' : 'F';
+
+print(grade);  // B
+```
+
+<Warning>
+  While nested ternary operators work, they can be hard to read. For complex conditions, consider using traditional `if-else` statements instead.
+</Warning>
+
+## Ternary in Widget Building
+
+The ternary operator is commonly used in Flutter for conditional widget rendering:
+
+```dart
+// Example in Flutter
+Widget build(BuildContext context) {
+  bool isLoading = false;
+  
+  return isLoading 
+    ? CircularProgressIndicator()
+    : Text('Content loaded');
+}
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Keep It Simple" icon="lightbulb">
+    Use ternary operators for simple conditions only
+  </Card>
+  <Card title="Readability First" icon="book">
+    If nesting is required, prefer if-else for clarity
+  </Card>
+  <Card title="Single Assignment" icon="equals">
+    Best used for assigning a value based on a condition
+  </Card>
+  <Card title="Consistent Types" icon="code">
+    Ensure both expressions return compatible types
+  </Card>
+</CardGroup>
+
+## Type Consistency
+
+<Info>
+  Both expressions in a ternary operator should return values of compatible types. Dart will infer the common type.
+</Info>
+
+```dart
+// Good: Both return String
+String result = condition ? 'Yes' : 'No';
+
+// Good: Both return int
+int value = condition ? 1 : 0;
+
+// Good: Compatible types (int and double → num)
+num number = condition ? 1 : 2.5;
+```
+
+## When to Use
+
+<Tabs>
+  <Tab title="Use Ternary">
+    - Simple conditional assignments
+    - Single-line conditions
+    - Returning values from conditions
+    - UI conditional rendering
+    - Setting default values
+  </Tab>
+  
+  <Tab title="Use If-Else">
+    - Complex conditions with multiple statements
+    - Nested conditions beyond 2 levels
+    - When readability is affected
+    - Multiple operations needed
+    - Debugging complex logic
+  </Tab>
+</Tabs>

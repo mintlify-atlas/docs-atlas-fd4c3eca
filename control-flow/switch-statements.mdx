@@ -1,0 +1,162 @@
+---
+title: 'Switch Statements'
+description: 'Learn how to use switch statements in Dart for multi-way branching and pattern matching'
+---
+
+# Switch Statements
+
+Switch statements provide a clean way to execute different code blocks based on the value of an expression. They are especially useful when you have multiple possible values to check.
+
+## Basic Syntax
+
+A switch statement evaluates an expression and executes the matching case:
+
+```dart
+switch (expression) {
+  case value1:
+    // Code to execute if expression == value1
+    break;
+  case value2:
+    // Code to execute if expression == value2
+    break;
+  default:
+    // Code to execute if no case matches
+}
+```
+
+## String Matching Example
+
+Switch statements work well with strings:
+
+```dart
+String dia = 'martes';
+
+switch (dia) {
+  case 'lunes':
+    print('Inicio de semana');
+    break;
+  case 'sábado':
+    break;
+  case 'viernes':
+    print('¡Casi es fin de semana!');
+    break;
+  case 'domingo':
+    print('Fin de semana');
+    break;
+  default:
+    print('Día inválido');
+}
+// Output: Día inválido
+```
+
+<Note>
+  The `break` statement is important - it prevents execution from falling through to the next case. Empty cases (like 'sábado' above) will fall through to the next case.
+</Note>
+
+## Pattern Matching with Conditions
+
+Dart's switch statements support pattern matching with relational operators:
+
+```dart
+int calificacion = 7;
+
+switch (calificacion) {
+  case <= 5:
+    print('No suficiente');
+    break;
+  case 6:
+    print('Suficiente');
+    break;
+  case 7:
+    print('Bueno');
+    break;
+  case 8:
+    print('Muy Bueno');
+    break;
+  case 9:
+    print('Sobresaliente');
+    break;
+  case 10:
+    print('Excelente');
+    break;
+}
+// Output: Bueno
+```
+
+<Warning>
+  The pattern `case <= 5:` uses Dart's pattern matching feature. This requires Dart 3.0 or later. Make sure your Dart version supports this feature.
+</Warning>
+
+## Complete Example
+
+Here's a complete working example with both string and numeric switch statements:
+
+```dart
+void main() {
+  // String switch example
+  String dia = 'martes';
+
+  switch (dia) {
+    case 'lunes':
+      print('Inicio de semana');
+      break;
+    case 'sábado':
+      break;
+    case 'viernes':
+      print('¡Casi es fin de semana!');
+      break;
+    case 'domingo':
+      print('Fin de semana');
+      break;
+    default:
+      print('Día inválido');
+  }
+
+  // Numeric switch with pattern matching
+  int calificacion = 7;
+  
+  switch (calificacion) {
+    case <= 5:
+      print('No suficiente');
+      break;
+    case 6:
+      print('Suficiente');
+      break;
+    case 7:
+      print('Bueno');
+      break;
+    case 8:
+      print('Muy Bueno');
+      break;
+    case 9:
+      print('Sobresaliente');
+      break;
+    case 10:
+      print('Excelente');
+      break;
+  }
+}
+```
+
+## Best Practices
+
+<Steps>
+  <Step title="Always use break">
+    Include a `break` statement at the end of each case to prevent fall-through (unless fall-through is intentional)
+  </Step>
+  <Step title="Include default case">
+    Add a `default` case to handle unexpected values
+  </Step>
+  <Step title="Consider if/else for ranges">
+    For simple range checks, if/else statements might be more readable than pattern matching
+  </Step>
+  <Step title="Keep cases simple">
+    Each case should contain simple, focused logic. For complex logic, consider calling separate functions
+  </Step>
+</Steps>
+
+## When to Use Switch vs If/Else
+
+- **Use switch** when you have multiple exact values to check against a single variable
+- **Use if/else** when you need complex boolean conditions or checking multiple variables
+- **Use switch with patterns** (Dart 3.0+) for range checks and more advanced matching scenarios

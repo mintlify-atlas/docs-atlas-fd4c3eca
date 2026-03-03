@@ -1,0 +1,340 @@
+---
+title: Examples overview
+description: Complete reference of all 32 Dart programming examples organized by category
+---
+
+This collection contains 32 progressive examples that take you from basic Dart syntax to advanced data structure manipulation. Each example is a complete, runnable Dart program demonstrating specific concepts.
+
+## Example categories
+
+<CardGroup cols={2}>
+  <Card title="Fundamentals" icon="rocket" href="/fundamentals/hello-world">
+    Examples 1-4: Hello World, variables, data types, and constants
+  </Card>
+  <Card title="Operators" icon="calculator" href="/operators/arithmetic">
+    Examples 5-9: Arithmetic, assignment, comparison, logical, and ternary operators
+  </Card>
+  <Card title="Control Flow" icon="code-branch" href="/control-flow/if-statements">
+    Examples 10-12: If/else statements, type conversions, and switch statements
+  </Card>
+  <Card title="Loops" icon="rotate" href="/loops/for-loop">
+    Examples 13-16: For, while, do-while loops, and practical examples
+  </Card>
+  <Card title="Functions" icon="function" href="/functions/basic-functions">
+    Examples 17-22: Basic functions, parameters, optional/named params, and arrow functions
+  </Card>
+  <Card title="Collections" icon="list" href="/collections/lists">
+    Examples 23-31: Lists, maps, iteration, and user input handling
+  </Card>
+</CardGroup>
+
+## Complete example index
+
+### Fundamentals (1-4)
+
+<Accordion title="1. Hello World">
+Your first Dart program - printing output to the console.
+
+**Topics**: `main()` function, `print()` statement
+
+**File**: `1_hola_mundo.dart`
+</Accordion>
+
+<Accordion title="2. Variable naming">
+Best practices for naming variables in Dart using camelCase convention.
+
+**Topics**: Variable declarations, naming conventions
+
+**File**: `2_nombrar_variables.dart`
+</Accordion>
+
+<Accordion title="3. Data types">
+Comprehensive overview of Dart's core data types.
+
+**Topics**: `int`, `double`, `String`, `bool`, `dynamic`
+
+**File**: `3_tipos_datos.dart`
+</Accordion>
+
+<Accordion title="4. Constants">
+Using `const` and `final` for immutable values.
+
+**Topics**: Constants, compile-time vs runtime immutability
+
+**File**: `4_constantes.dart`
+</Accordion>
+
+### Operators (5-9)
+
+<Accordion title="5. Arithmetic operators">
+Mathematical operations in Dart.
+
+**Topics**: `+`, `-`, `*`, `/`, `%`, `~/` (integer division)
+
+**File**: `5_operadores_aritmeticos.dart`
+</Accordion>
+
+<Accordion title="6. Assignment operators">
+Different ways to assign and update values.
+
+**Topics**: `=`, `+=`, `-=`, `*=`, `/=`, `~/=`, `%=`
+
+**File**: `6_operadores_asignacion.dart`
+</Accordion>
+
+<Accordion title="7. Comparison operators">
+Comparing values and building conditions.
+
+**Topics**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+
+**File**: `7_operadores_comparacion.dart`
+</Accordion>
+
+<Accordion title="8. Logical operators">
+Combining multiple conditions.
+
+**Topics**: `&&` (AND), `||` (OR), `!` (NOT)
+
+**File**: `8_operadores_logicos.dart`
+</Accordion>
+
+<Accordion title="9. Ternary conditional operator">
+Inline conditional expressions for concise code.
+
+**Topics**: `condition ? trueValue : falseValue`
+
+**File**: `9_operadores_ternarios_condicionales.dart`
+</Accordion>
+
+### Control flow (10-12)
+
+<Accordion title="10. If/else statements">
+Making decisions in your code with conditional statements.
+
+**Topics**: Simple conditions, double conditions, nested if/else
+
+**File**: `10_sentencias_if.dart`
+</Accordion>
+
+<Accordion title="11. Type conversions">
+Converting between different data types explicitly.
+
+**Topics**: `int.parse()`, `double.parse()`, `.toString()`
+
+**File**: `11_conversiones_explicitas.dart`
+</Accordion>
+
+<Accordion title="12. Switch statements">
+Multi-way branching for cleaner code with multiple conditions.
+
+**Topics**: `switch`, `case`, `default`, `break`
+
+**File**: `12_sentencias_switch.dart`
+</Accordion>
+
+### Loops (13-16)
+
+<Accordion title="13. For loops">
+Repeating code a specific number of times.
+
+**Topics**: `for` loop syntax, counter variables, custom increments
+
+**File**: `13_bucle_for.dart`
+</Accordion>
+
+<Accordion title="14. While loops">
+Repeating code while a condition is true.
+
+**Topics**: `while` loop syntax, pre-condition loops
+
+**File**: `14_bucle_while.dart`
+</Accordion>
+
+<Accordion title="15. Do-while loops">
+Loops that execute at least once before checking the condition.
+
+**Topics**: `do-while` syntax, post-condition loops
+
+**File**: `15_bucle_Do_while.dart`
+</Accordion>
+
+<Accordion title="16. Loop examples">
+Practical applications of different loop types.
+
+**Topics**: Nested loops, loop patterns, real-world use cases
+
+**File**: `16_ejemplo:ciclos.dart`
+</Accordion>
+
+### Functions (17-22)
+
+<Accordion title="17. Basic functions">
+Creating reusable code blocks without return values.
+
+**Topics**: `void` functions, function calls, reusability
+
+**File**: `17_funciones_basicas.dart`
+</Accordion>
+
+<Accordion title="18. Functions with return values">
+Functions that compute and return results.
+
+**Topics**: Return types, `return` statement, type annotations
+
+**File**: `18_funciones_retorno.dart`
+</Accordion>
+
+<Accordion title="19. Function parameters">
+Passing data to functions for more flexible behavior.
+
+**Topics**: Required parameters, parameter types
+
+**File**: `19_funciones_parametros.dart`
+</Accordion>
+
+<Accordion title="20. Optional parameters">
+Making function parameters optional with default values.
+
+**Topics**: `[]` syntax, default values, null safety
+
+**File**: `20_funciones_parametros_opcionales.dart`
+</Accordion>
+
+<Accordion title="21. Named parameters">
+Using parameter names for clearer function calls.
+
+**Topics**: `{}` syntax, named arguments, required keyword
+
+**File**: `21_funciones_parametros_nombrados.dart`
+</Accordion>
+
+<Accordion title="22. Arrow functions">
+Concise syntax for simple functions.
+
+**Topics**: `=>` syntax, single-expression functions
+
+**File**: `22_funciones_flecha.dart`
+</Accordion>
+
+### Collections (23-31)
+
+<Accordion title="23. Lists">
+Creating and working with ordered collections.
+
+**Topics**: List creation, `add()`, `remove()`, accessing elements
+
+**File**: `23_listas.dart`
+</Accordion>
+
+<Accordion title="24. List examples">
+Practical list operations and use cases.
+
+**Topics**: List manipulation, real-world scenarios
+
+**File**: `24_ejemplo_listas.dart`
+</Accordion>
+
+<Accordion title="25. List iteration">
+Different ways to loop through list elements.
+
+**Topics**: `for` loop, `for-in` loop, `.forEach()` method
+
+**File**: `25_recorrer_lista.dart`
+</Accordion>
+
+<Accordion title="26. User input">
+Reading user input from the console and storing in lists.
+
+**Topics**: `stdin.readLineSync()`, `int.parse()`, interactive programs
+
+**File**: `26_introducir_valores.dart`
+</Accordion>
+
+<Accordion title="27. Practice exercise 1">
+Complete exercise: Build a list from user input and display results.
+
+**Topics**: Functions with lists, user interaction, iteration
+
+**File**: `27_tarea17.dart`
+</Accordion>
+
+<Accordion title="28. Practice exercise 2">
+Grade calculator with average, filtering, and analysis.
+
+**Topics**: List processing, mathematical operations, conditional filtering
+
+**File**: `28_practica4p1.dart`
+</Accordion>
+
+<Accordion title="29. Maps (dictionaries)">
+Key-value pair collections for structured data.
+
+**Topics**: Map creation, accessing values, `Map<K, V>` syntax
+
+**File**: `29_diccionarios.dart`
+</Accordion>
+
+<Accordion title="30. Map examples">
+Practical applications of maps and dictionaries.
+
+**Topics**: Map operations, real-world use cases
+
+**File**: `30_ejemplo_maps.dart`
+</Accordion>
+
+<Accordion title="31. Different map types">
+Maps with various key and value type combinations.
+
+**Topics**: Type flexibility, `Map<String, int>`, `Map<int, String>`
+
+**File**: `31_mapas_diferentes_tipos.dart`
+</Accordion>
+
+### Advanced exercises (32)
+
+<Accordion title="32. Grade management system">
+Complex example combining maps, lists, and functions for a complete grade tracking system.
+
+**Topics**: Nested data structures, `Map<String, List<int>>`, multiple functions, data analysis
+
+**File**: `32_ejercicio_diccionario_avanzado.dart`
+
+See the [detailed breakdown](/examples/grade-calculator) for a complete walkthrough.
+</Accordion>
+
+## Learning path recommendations
+
+<Steps>
+  <Step title="Start with fundamentals">
+    Work through examples 1-4 to understand basic Dart syntax, variables, and data types.
+  </Step>
+  <Step title="Master operators">
+    Complete examples 5-9 to learn how to perform operations and build expressions.
+  </Step>
+  <Step title="Control program flow">
+    Practice examples 10-12 to make decisions and branch your code logic.
+  </Step>
+  <Step title="Repeat with loops">
+    Study examples 13-16 to understand iteration and repetition patterns.
+  </Step>
+  <Step title="Write functions">
+    Build reusable code with examples 17-22, progressing from basic to advanced function features.
+  </Step>
+  <Step title="Work with collections">
+    Learn data structure manipulation with examples 23-31, covering both lists and maps.
+  </Step>
+  <Step title="Apply your knowledge">
+    Challenge yourself with example 32, a real-world application combining multiple concepts.
+  </Step>
+</Steps>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Run the examples" icon="play" href="/setup">
+    Set up your Dart environment and start running examples
+  </Card>
+  <Card title="Advanced example" icon="graduation-cap" href="/examples/grade-calculator">
+    Study the complete grade calculator system
+  </Card>
+</CardGroup>

@@ -1,0 +1,123 @@
+---
+title: 'Do-While Loop'
+description: 'Understand do-while loops in Dart for guaranteed execution'
+---
+
+# Do-While Loop
+
+The `do-while` loop is similar to the while loop, but with one key difference: it checks the condition **after** executing the loop body. This guarantees that the code inside the loop runs at least once.
+
+## Basic Syntax
+
+```dart
+do {
+  // code to execute
+  // update condition variable
+} while (condition);
+```
+
+<Note>
+  The do-while loop always executes its body at least once, even if the condition is initially false.
+</Note>
+
+## Do-While Loop with Increment
+
+This example shows a basic do-while loop counting from 1 to 5.
+
+```dart
+print('\nCiclo Do While Incremento');
+int contador = 1;
+do {
+  print('Contador: $contador');
+  contador++;
+} while (contador <= 5);
+```
+
+### Execution Flow
+
+1. Execute the loop body (print and increment)
+2. Check the condition `contador <= 5`
+3. If true, repeat from step 1
+4. If false, exit the loop
+
+## Do-While with Custom Increment
+
+You can use different increment values to control the iteration pattern.
+
+```dart
+print('\nCiclo Do While Incremento Diferente');
+contador = 1;
+do {
+  print('Contador: $contador');
+  contador += 2;
+} while (contador <= 5);
+```
+
+This loop increments by 2 each time, printing: 1, 3, 5.
+
+## Key Difference: While vs Do-While
+
+<CodeGroup>
+```dart While Loop
+int x = 10;
+while (x < 5) {
+  print('This will never print');
+}
+// Output: (nothing - loop never executes)
+```
+
+```dart Do-While Loop
+int x = 10;
+do {
+  print('This prints once: $x');
+} while (x < 5);
+// Output: This prints once: 10
+```
+</CodeGroup>
+
+<Tip>
+  Use do-while loops when you need to execute code at least once before checking a condition, such as displaying a menu or prompting for user input.
+</Tip>
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card title="User Input Validation" icon="keyboard">
+    Keep prompting until valid input is received
+  </Card>
+  <Card title="Menu Systems" icon="list">
+    Display menu at least once before checking user choice
+  </Card>
+  <Card title="Game Loops" icon="gamepad">
+    Execute game logic before checking if game should continue
+  </Card>
+  <Card title="Retry Logic" icon="rotate">
+    Attempt an operation at least once before checking for success
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+```dart
+void main() { 
+  //Do While
+  print('\nCiclo Do While Incremento');
+  int contador = 1;
+  do {
+    print('Contador: $contador');
+    contador++;
+  } while (contador <= 5);
+
+  //Do While Oncrementos Diferentes
+  print('\nCiclo Do While Incremento Diferente');
+  contador = 1;
+  do {
+    print('Contador: $contador');
+    contador += 2;
+  } while (contador <= 5);
+}
+```
+
+<Warning>
+  Remember to update your condition variable inside the loop body, or you'll create an infinite loop.
+</Warning>

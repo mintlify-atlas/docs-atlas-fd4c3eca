@@ -1,0 +1,168 @@
+---
+title: "User Input"
+description: "Learn how to handle user input from the console in Dart"
+---
+
+## Introduction
+
+Dart's `dart:io` library provides functionality for reading user input from the console. This is essential for creating interactive command-line applications.
+
+## Importing dart:io
+
+First, import the library:
+
+```dart
+import 'dart:io';
+```
+
+<Note>
+  The `dart:io` library is only available for command-line applications, not web applications.
+</Note>
+
+## Reading String Input
+
+Use `stdin.readLineSync()` to read a line of text:
+
+```dart
+print("¿Cómo te llamas?");
+
+// El '?' es porque el valor puede ser nulo
+String? nombre = stdin.readLineSync();
+
+print("Hola, $nombre. ¡Mucho gusto!");
+```
+
+<Tip>
+  The `?` after `String` indicates that the variable can be null. This is because the user might not enter anything.
+</Tip>
+
+## Reading Numeric Input
+
+To read numbers, you need to convert the string input:
+
+```dart
+print("Introduce tu edad:");
+
+// Leemos el texto y lo convertimos a entero
+String? entrada = stdin.readLineSync();
+int edad = int.parse(entrada ?? '0');
+
+print("El año que viene tendrás ${edad + 1} años.");
+```
+
+### The Null-Coalescing Operator (??)
+
+The `??` operator provides a default value if the input is null:
+
+```dart
+int edad = int.parse(entrada ?? '0');
+```
+
+If `entrada` is null, it uses `'0'` instead.
+
+## Using with Lists and Maps
+
+Here's a practical example combining user input with a Map:
+
+```dart
+import 'dart:io';
+
+void main() {
+  Map<String, String> telefonos = {
+    'Juan': '8764521111',
+    'María': '8764521222'
+  };
+
+  //Agregar Datos al Diccionario
+  print('\nAgregar Contactos a la Agenda Telefonica:');
+  String nombre = '';
+  for (var i = 0; i < 3; i++) {
+    print('Nombre del Contacto:');
+    nombre = stdin.readLineSync()!;
+    print('Número de Telefono de $nombre:');
+    telefonos[nombre] = stdin.readLineSync()!;
+  }
+
+  // Iterar
+  print('\nRecorrido de un Diccionario:');
+  telefonos.forEach((nombre, telefono) {
+    print('$nombre: $telefono');
+  });
+}
+```
+
+<Note>
+  The `!` operator asserts that the value is not null. Use it only when you're certain the user will provide input.
+</Note>
+
+## Complete Example: Basic Input
+
+```dart
+import 'dart:io';
+
+void main() {
+  //Introducción de Valores String
+  print("¿Cómo te llamas?");
+  
+  // El '?' es porque el valor puede ser nulo
+  String? nombre = stdin.readLineSync();
+
+  print("Hola, $nombre. ¡Mucho gusto!");
+
+  //Introducción de Valores Enteros o Dobles
+  print("Introduce tu edad:");
+  
+  // Leemos el texto y lo convertimos a entero
+  String? entrada = stdin.readLineSync();
+  int edad = int.parse(entrada ?? '0'); 
+
+  print("El año que viene tendrás ${edad + 1} años.");
+}
+```
+
+## Parsing Different Types
+
+### Integer
+
+```dart
+int edad = int.parse(entrada ?? '0');
+```
+
+### Double
+
+```dart
+double precio = double.parse(entrada ?? '0.0');
+```
+
+## Null Safety Operators
+
+| Operator | Meaning | Example |
+|----------|---------|----------|
+| `?` | Nullable type | `String? nombre` |
+| `??` | Null-coalescing | `entrada ?? '0'` |
+| `!` | Null assertion | `stdin.readLineSync()!` |
+
+<Tip>
+  Always handle potential null values when working with user input to avoid runtime errors.
+</Tip>
+
+## Error Handling
+
+For production code, consider handling parsing errors:
+
+```dart
+try {
+  int edad = int.parse(entrada ?? '0');
+  print("El año que viene tendrás ${edad + 1} años.");
+} catch (e) {
+  print("Por favor, introduce un número válido.");
+}
+```
+
+## Key Takeaways
+
+- Import `dart:io` to read console input
+- Use `stdin.readLineSync()` to read user input as a string
+- Convert strings to numbers using `int.parse()` or `double.parse()`
+- Handle null values with `?`, `??`, and `!` operators
+- Always validate and handle potential parsing errors

@@ -1,0 +1,331 @@
+---
+title: "Development Environment Setup"
+description: "Step-by-step guide to installing and configuring Dart SDK and development tools for running the 32 example programs."
+---
+
+# Setting Up Your Dart Development Environment
+
+This guide will walk you through installing the Dart SDK and setting up your development environment to run all 32 examples in this collection.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+- A modern operating system (Windows, macOS, or Linux)
+- Administrator/sudo access for installing software
+- At least 2GB of free disk space
+- An internet connection for downloading tools
+
+## Installation Options
+
+<CardGroup cols={2}>
+  <Card title="Option 1: Dart SDK Only" icon="download">
+    Install just the Dart SDK for running examples from the command line
+  </Card>
+  <Card title="Option 2: Flutter (Includes Dart)" icon="mobile">
+    Install Flutter, which includes the Dart SDK and enables mobile development
+  </Card>
+</CardGroup>
+
+## Option 1: Installing Dart SDK
+
+<Steps>
+  <Step title="Download Dart SDK">
+    Visit the official Dart SDK download page:
+    
+    **Windows**: Use Chocolatey package manager
+    ```bash
+    choco install dart-sdk
+    ```
+    
+    **macOS**: Use Homebrew
+    ```bash
+    brew tap dart-lang/dart
+    brew install dart
+    ```
+    
+    **Linux**: Use apt-get (Debian/Ubuntu)
+    ```bash
+    sudo apt-get update
+    sudo apt-get install apt-transport-https
+    wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/dart.gpg
+    echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | sudo tee /etc/apt/sources.list.d/dart_stable.list
+    sudo apt-get update
+    sudo apt-get install dart
+    ```
+  </Step>
+  
+  <Step title="Verify Installation">
+    Open a terminal or command prompt and verify Dart is installed:
+    ```bash
+    dart --version
+    ```
+    
+    You should see output similar to:
+    ```
+    Dart SDK version: 3.x.x (stable)
+    ```
+  </Step>
+  
+  <Step title="Test with Hello World">
+    Create a test file to verify everything works:
+    ```bash
+    echo "void main() { print('Hola Mundo!!!'); }" > test.dart
+    dart run test.dart
+    ```
+    
+    Expected output:
+    ```
+    Hola Mundo!!!
+    ```
+  </Step>
+</Steps>
+
+## Option 2: Installing Flutter (Includes Dart)
+
+<Note>
+  If you plan to build Flutter apps or want the complete development toolkit, choose this option. Flutter includes the Dart SDK automatically.
+</Note>
+
+<Steps>
+  <Step title="Download Flutter">
+    Visit [flutter.dev](https://flutter.dev/docs/get-started/install) and download the Flutter SDK for your operating system.
+  </Step>
+  
+  <Step title="Extract and Add to PATH">
+    Extract the downloaded file and add Flutter to your system PATH.
+    
+    **macOS/Linux**:
+    ```bash
+    export PATH="$PATH:`pwd`/flutter/bin"
+    ```
+    
+    **Windows**: Add the `flutter\bin` directory to your PATH environment variable through System Properties.
+  </Step>
+  
+  <Step title="Run Flutter Doctor">
+    Verify your installation:
+    ```bash
+    flutter doctor
+    ```
+    
+    This command checks your environment and displays a report. You can run Dart programs even if some Flutter dependencies are missing.
+  </Step>
+  
+  <Step title="Verify Dart">
+    Check that Dart is available:
+    ```bash
+    dart --version
+    ```
+  </Step>
+</Steps>
+
+## Setting Up Your Code Editor
+
+### Visual Studio Code (Recommended)
+
+VS Code is lightweight, free, and has excellent Dart support.
+
+<Steps>
+  <Step title="Install VS Code">
+    Download from [code.visualstudio.com](https://code.visualstudio.com/)
+  </Step>
+  
+  <Step title="Install Dart Extension">
+    1. Open VS Code
+    2. Click on Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+    3. Search for "Dart"
+    4. Install the official Dart extension by Dart Code
+  </Step>
+  
+  <Step title="Configure Settings (Optional)">
+    Open settings (Ctrl+, / Cmd+,) and customize:
+    - `dart.lineLength`: Set to 80 or 120
+    - `editor.formatOnSave`: Enable automatic formatting
+    - `dart.debugExternalPackageLibraries`: Enable for debugging
+  </Step>
+</Steps>
+
+### IntelliJ IDEA / Android Studio
+
+For a full-featured IDE experience:
+
+<Steps>
+  <Step title="Install IDE">
+    Download IntelliJ IDEA Community Edition or Android Studio
+  </Step>
+  
+  <Step title="Install Dart Plugin">
+    1. Open Settings/Preferences
+    2. Go to Plugins
+    3. Search for "Dart"
+    4. Install and restart the IDE
+  </Step>
+  
+  <Step title="Configure Dart SDK">
+    1. Go to Settings/Preferences
+    2. Navigate to Languages & Frameworks > Dart
+    3. Check "Enable Dart support"
+    4. Set the Dart SDK path
+  </Step>
+</Steps>
+
+## Running the Example Files
+
+Once your environment is set up, you can run any of the 32 examples:
+
+### From Command Line
+
+Navigate to the source directory and run any example:
+
+```bash
+cd ~/workspace/source
+dart run 1_hola_mundo.dart
+```
+
+### From VS Code
+
+1. Open the source folder in VS Code
+2. Open any `.dart` file
+3. Press F5 or click the "Run" button
+4. View output in the Debug Console
+
+### From IntelliJ/Android Studio
+
+1. Open the source folder as a project
+2. Right-click on any `.dart` file
+3. Select "Run 'filename.dart'"
+4. View output in the Run panel
+
+## Testing Your Setup
+
+Let's verify your environment with a few examples from our collection:
+
+<Steps>
+  <Step title="Example 1: Hello World">
+    ```bash
+    dart run 1_hola_mundo.dart
+    ```
+    Expected output:
+    ```
+    Hola Mundo!!!
+    ```
+  </Step>
+  
+  <Step title="Example 3: Data Types">
+    ```bash
+    dart run 3_tipos_datos.dart
+    ```
+    You should see output demonstrating int, double, String, bool, and dynamic types.
+  </Step>
+  
+  <Step title="Example 13: For Loops">
+    ```bash
+    dart run 13_bucle_for.dart
+    ```
+    Watch the iteration patterns in action!
+  </Step>
+  
+  <Step title="Example 23: Lists">
+    ```bash
+    dart run 23_listas.dart
+    ```
+    See list operations: add, remove, search, and query operations.
+  </Step>
+</Steps>
+
+## Common Issues and Solutions
+
+### "dart: command not found"
+
+**Solution**: The Dart SDK is not in your PATH. Add the Dart bin directory to your system PATH:
+- **macOS/Linux**: Add to `.bashrc` or `.zshrc`: `export PATH="$PATH:/path/to/dart-sdk/bin"`
+- **Windows**: Add to PATH through System Environment Variables
+
+### "Dart SDK is not configured"
+
+**Solution**: In your IDE, go to settings and manually specify the Dart SDK path:
+- Default paths:
+  - **macOS**: `/usr/local/opt/dart/libexec`
+  - **Linux**: `/usr/lib/dart`
+  - **Windows**: `C:\tools\dart-sdk`
+
+### Encoding Issues with Spanish Characters
+
+Some examples include Spanish text (e.g., "Matemáticas", "español"). If you see garbled characters:
+
+**Solution**: Ensure your terminal uses UTF-8 encoding:
+```bash
+# Linux/macOS
+export LANG=en_US.UTF-8
+
+# Windows PowerShell
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+```
+
+## Optional Tools
+
+### Dart DevTools
+
+Dart includes powerful debugging and performance tools:
+
+```bash
+dart devtools
+```
+
+This launches a web-based suite for:
+- Debugging
+- Performance profiling
+- Memory analysis
+- Widget inspection (for Flutter)
+
+### Code Formatting
+
+Format your code automatically with:
+
+```bash
+dart format .
+```
+
+Or format a specific file:
+
+```bash
+dart format 1_hola_mundo.dart
+```
+
+### Static Analysis
+
+Run static analysis to catch potential issues:
+
+```bash
+dart analyze
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Start Learning" icon="graduation-cap" href="/fundamentals/hello-world">
+    Begin with Example 1: Hello World
+  </Card>
+  <Card title="Explore Variables" icon="code" href="/fundamentals/variables">
+    Learn about variable naming and type inference
+  </Card>
+  <Card title="Data Types" icon="database" href="/fundamentals/data-types">
+    Master int, double, String, bool, and dynamic types
+  </Card>
+  <Card title="Full Examples" icon="list" href="/examples/overview">
+    Browse all 32 examples
+  </Card>
+</CardGroup>
+
+<Note>
+  All 32 examples are ready to run immediately after setup. No additional configuration or package installation required!
+</Note>
+
+## Get Help
+
+If you encounter issues:
+- Check the [official Dart documentation](https://dart.dev/guides)
+- Visit the [Dart community](https://dart.dev/community)
+- Review example comments for hints and explanations
+
+Happy coding with Dart!

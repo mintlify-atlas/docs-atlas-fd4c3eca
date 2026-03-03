@@ -1,0 +1,106 @@
+---
+title: 'While Loop'
+description: 'Master while loops in Dart for condition-based iteration'
+---
+
+# While Loop
+
+The `while` loop executes a block of code repeatedly as long as a specified condition is true. It checks the condition before each iteration.
+
+## Basic Syntax
+
+```dart
+while (condition) {
+  // code to execute
+  // update condition variable
+}
+```
+
+<Note>
+  Unlike the for loop, the while loop requires you to manage the counter variable manually, both initialization and increment.
+</Note>
+
+## While Loop with Increment
+
+This example demonstrates a basic while loop that counts from 1 to 5.
+
+```dart
+int contador = 1;
+print('\nCiclo While Incremento');
+while (contador <= 5) {
+  print('Contador: $contador');
+  contador++;
+}
+// Salida: Contador: 1, 2, 3, 4, 5
+```
+
+### How It Works
+
+1. Initialize `contador` to 1 before the loop
+2. Check if `contador <= 5` (condition)
+3. If true, execute the loop body
+4. Increment `contador` by 1
+5. Repeat steps 2-4 until condition is false
+
+## While Loop with Decrement
+
+You can also count down using a while loop.
+
+```dart
+print('\nCiclo While Decremento');
+contador = 5;
+while (contador >= 1) {
+  print('Contador: $contador');
+  contador--;
+}
+```
+
+This loop starts at 5 and decrements to 1.
+
+<Warning>
+  Always ensure your condition will eventually become false. Otherwise, you'll create an infinite loop that never terminates.
+</Warning>
+
+## When to Use While Loops
+
+<AccordionGroup>
+  <Accordion title="Unknown number of iterations">
+    Use while loops when you don't know in advance how many times the loop should run.
+  </Accordion>
+  <Accordion title="Condition-based execution">
+    Perfect for loops that continue until a specific condition is met, such as user input validation.
+  </Accordion>
+  <Accordion title="Reading data">
+    Ideal for reading data until the end of a file or stream is reached.
+  </Accordion>
+</AccordionGroup>
+
+## For Loop vs While Loop
+
+| Feature | For Loop | While Loop |
+|---------|----------|------------|
+| Best for | Known iterations | Unknown iterations |
+| Counter management | Automatic | Manual |
+| Syntax | Compact | More explicit |
+| Readability | Better for counting | Better for conditions |
+
+## Complete Example
+
+```dart
+void main() {
+  int contador = 1;
+  print('\nCiclo While Incremento');
+  while (contador <= 5) {
+    print('Contador: $contador');
+    contador++;
+  }
+  // Salida: Contador: 1, 2, 3, 4, 5
+
+  print('\nCiclo While Decremento');
+  contador = 5;
+  while (contador >= 1) {
+    print('Contador: $contador');
+    contador--;
+  }
+}
+```

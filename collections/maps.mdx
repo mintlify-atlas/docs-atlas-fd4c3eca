@@ -1,0 +1,152 @@
+---
+title: "Maps"
+description: "Learn how to create and use Maps (dictionaries) in Dart for key-value data storage"
+---
+
+## Introduction
+
+Maps are collections that store data in key-value pairs. They're also known as dictionaries or associative arrays in other programming languages.
+
+## Creating a Map
+
+Define a map with curly braces, specifying key-value pairs:
+
+```dart
+Map<String, int> edades = {
+  'Juan': 17,
+  'María': 16,
+  'Carlos': 18
+};
+```
+
+<Note>
+  The syntax `Map<String, int>` means the keys are Strings and the values are integers. Both types are enforced by Dart's type system.
+</Note>
+
+## Accessing Values
+
+Access values using the key in square brackets:
+
+```dart
+print(edades['Juan']);        // 17
+print(edades['María']);       // 16
+```
+
+## Adding Entries
+
+Add new key-value pairs by assignment:
+
+```dart
+edades['Ana'] = 17;
+print(edades);
+```
+
+<Tip>
+  If the key already exists, the assignment will update its value instead of creating a duplicate.
+</Tip>
+
+## Verifying Contents
+
+### Check for Keys
+
+```dart
+print(edades.containsKey('Juan'));    // ¿Existe la clave?
+```
+
+### Check for Values
+
+```dart
+print(edades.containsValue(17));      // ¿Existe el valor?
+```
+
+## Removing Entries
+
+Remove a key-value pair by key:
+
+```dart
+edades.remove('Carlos');
+print(edades);
+```
+
+## Querying Map Properties
+
+### Get All Keys
+
+```dart
+print(edades.keys);    // Todas las claves
+```
+
+### Get All Values
+
+```dart
+print(edades.values);  // Todos los valores
+```
+
+### Get Length
+
+```dart
+print(edades.length);  // Cantidad de pares
+```
+
+### Check if Empty
+
+```dart
+print(edades.isEmpty); // ¿Vacío?
+```
+
+## Complete Example
+
+```dart
+void main() {
+
+  Map<String, int> edades = {
+    'Juan': 17,
+    'María': 16,
+    'Carlos': 18
+  };
+
+  // ACCEDER
+  print(edades['Juan']);        // 17
+  print(edades['María']);       // 16
+
+  // AGREGAR
+  edades['Ana'] = 17;
+  print(edades);
+
+  // VERIFICAR
+  print(edades.containsKey('Juan'));    // ¿Existe la clave?
+  print(edades.containsValue(17));      // ¿Existe el valor?
+
+  // ELIMINAR
+  edades.remove('Carlos');
+  print(edades);
+
+  // CONSULTAR
+  print(edades.keys);    // Todas las claves
+  print(edades.values);  // Todos los valores
+  print(edades.length);  // Cantidad de pares
+  print(edades.isEmpty); // ¿Vacío?
+}
+```
+
+## Common Map Operations
+
+| Operation | Method | Example |
+|-----------|--------|----------|
+| **Access** | `map[key]` | `edades['Juan']` |
+| **Add/Update** | `map[key] = value` | `edades['Ana'] = 17` |
+| **Remove** | `remove(key)` | `edades.remove('Carlos')` |
+| **Check key** | `containsKey(key)` | `edades.containsKey('Juan')` |
+| **Check value** | `containsValue(value)` | `edades.containsValue(17)` |
+| **Get keys** | `keys` | `edades.keys` |
+| **Get values** | `values` | `edades.values` |
+| **Get size** | `length` | `edades.length` |
+
+## Key Takeaways
+
+- Maps store data in key-value pairs
+- Access values using `map[key]` syntax
+- Use `containsKey()` to check if a key exists
+- Use `containsValue()` to check if a value exists
+- Maps are unordered collections (order of insertion is not guaranteed)
+- Keys must be unique, but values can be duplicated

@@ -1,0 +1,223 @@
+---
+title: "Advanced Maps"
+description: "Learn about Maps with dynamic types and nested data structures in Dart"
+---
+
+## Introduction
+
+Maps in Dart can store values of different types, allowing you to create flexible and complex data structures.
+
+## Maps with Dynamic Types
+
+Use the `dynamic` type to allow different value types in a single map:
+
+```dart
+Map<String, dynamic> usuario = {
+  'nombre': 'Roberto',
+  'edad': 20,
+  'activo': true,
+  'calificacion': 8.5,
+};
+```
+
+<Note>
+  The `dynamic` keyword means the values can be of any type: String, int, bool, double, or even other collections.
+</Note>
+
+## Accessing Mixed-Type Values
+
+Access values the same way as regular maps:
+
+```dart
+print('\nDatos del Usuario:');
+print('Nombre: ${usuario['nombre']}'); // Roberto
+print('Edad: ${usuario['edad']}');  // 20
+print('Activo: ${usuario['activo']}'); // true
+print('Calificación: ${usuario['calificacion']}\n'); // 8.5
+```
+
+## Iterating Dynamic Maps
+
+Use forEach() to iterate over maps with different value types:
+
+```dart
+print('\nImprime con ForEach.');
+usuario.forEach((clave, valor){
+  print('$clave: $valor');
+});
+```
+
+## Complete Example
+
+```dart
+void main() {
+  //Mapas con Diferentes tipos de Datos Almacenados.
+  Map<String, dynamic> usuario = {
+  'nombre': 'Roberto',
+  'edad': 20,
+  'activo': true,
+  'calificacion': 8.5,
+  };
+
+  print('\nDatos del Usuario:');
+  print('Nombre: ${usuario['nombre']}'); // Roberto
+  print('Edad: ${usuario['edad']}');  // 20
+  print('Activo: ${usuario['activo']}'); // true
+  print('Calificación: ${usuario['calificacion']}\n'); // 8.5
+
+  print('\nImprime con ForEach.');
+  usuario.forEach((clave, valor){
+    print('$clave: $valor');
+  });
+}
+```
+
+## Common Use Cases for Dynamic Maps
+
+### User Profiles
+
+```dart
+Map<String, dynamic> perfil = {
+  'nombre': 'Ana García',
+  'edad': 25,
+  'email': 'ana@example.com',
+  'verificado': true,
+  'puntuacion': 4.8
+};
+```
+
+### Configuration Objects
+
+```dart
+Map<String, dynamic> config = {
+  'host': 'localhost',
+  'puerto': 8080,
+  'ssl': true,
+  'timeout': 30.5
+};
+```
+
+### API Responses
+
+```dart
+Map<String, dynamic> respuesta = {
+  'status': 200,
+  'mensaje': 'OK',
+  'datos': ['item1', 'item2', 'item3'],
+  'timestamp': 1234567890
+};
+```
+
+## Nested Maps
+
+Maps can contain other maps for hierarchical data:
+
+```dart
+Map<String, dynamic> empresa = {
+  'nombre': 'TechCorp',
+  'empleados': 100,
+  'direccion': {
+    'calle': 'Main St',
+    'numero': 123,
+    'ciudad': 'Springfield'
+  }
+};
+
+// Acceder a valores anidados
+print(empresa['direccion']['ciudad']); // Springfield
+```
+
+## Lists Inside Maps
+
+Store lists as values in maps:
+
+```dart
+Map<String, dynamic> curso = {
+  'nombre': 'Programación en Dart',
+  'duracion': 40,
+  'estudiantes': ['Juan', 'María', 'Pedro'],
+  'activo': true
+};
+
+// Acceder a la lista
+List estudiantes = curso['estudiantes'];
+print(estudiantes[0]); // Juan
+```
+
+## Type Safety Considerations
+
+<Tip>
+  While `dynamic` provides flexibility, it sacrifices type safety. For production code, consider using specific types or creating custom classes.
+</Tip>
+
+### Casting Values
+
+When working with dynamic maps, you may need to cast values:
+
+```dart
+int edad = usuario['edad'] as int;
+String nombre = usuario['nombre'] as String;
+bool activo = usuario['activo'] as bool;
+```
+
+## Best Practices
+
+### Use Specific Types When Possible
+
+```dart
+// Prefer this
+Map<String, int> edades = {'Juan': 17, 'María': 16};
+
+// Over this
+Map<String, dynamic> edades = {'Juan': 17, 'María': 16};
+```
+
+### Consider Custom Classes
+
+For complex structures, create classes instead:
+
+```dart
+class Usuario {
+  String nombre;
+  int edad;
+  bool activo;
+  double calificacion;
+  
+  Usuario(this.nombre, this.edad, this.activo, this.calificacion);
+}
+
+var usuario = Usuario('Roberto', 20, true, 8.5);
+```
+
+## Working with JSON
+
+Dynamic maps are commonly used for JSON data:
+
+```dart
+import 'dart:convert';
+
+String jsonString = '{"nombre": "Roberto", "edad": 20, "activo": true}';
+Map<String, dynamic> usuario = jsonDecode(jsonString);
+
+print(usuario['nombre']); // Roberto
+```
+
+## Type Checking
+
+Check the type of a value before using it:
+
+```dart
+if (usuario['edad'] is int) {
+  int edad = usuario['edad'];
+  print('Edad: $edad');
+}
+```
+
+## Key Takeaways
+
+- Use `Map<String, dynamic>` to store values of different types
+- Dynamic maps are useful for JSON, configurations, and flexible data structures
+- Access nested maps using multiple bracket operations
+- Lists can be stored as values in maps
+- For better type safety, prefer specific types or custom classes when possible
+- Use type casting and checking when working with dynamic values

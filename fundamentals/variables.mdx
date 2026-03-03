@@ -1,0 +1,115 @@
+---
+title: 'Variables'
+description: 'Learn how to properly name and declare variables in Dart using type inference'
+---
+
+## Variable Naming Best Practices
+
+In Dart, proper variable naming is essential for writing clean, maintainable code. Variables should have descriptive names that clearly indicate what data they store.
+
+## Type Inference with `var`
+
+Dart supports type inference using the `var` keyword. When you use `var`, Dart automatically determines the type based on the assigned value.
+
+### Good Variable Names
+
+Variable names should be descriptive, use camelCase, and avoid abbreviations:
+
+```dart
+void main() {
+  //Tipado Inferido con el VAR
+  var edad = 18;
+  var nombre = 'Juan';
+  var curp = 'AGDTHTMSLF02';
+  var estadoCivil = 'Soltero';
+  var apellido_paterno_alumno = 'Fernández';
+  print(edad);
+  print(nombre);
+  print(curp);
+  print(estadoCivil);
+  print(apellido_paterno_alumno);
+}
+```
+
+<Tip>
+Use camelCase for variable names: start with a lowercase letter and capitalize the first letter of each subsequent word (e.g., `estadoCivil`, `apellidoPaterno`).
+</Tip>
+
+## Variable Naming Rules
+
+### What Makes a Good Variable Name?
+
+1. **Descriptive**: The name should clearly indicate what the variable stores
+2. **No abbreviations**: Use full words instead of shortened versions
+3. **camelCase**: Start with lowercase, capitalize subsequent words
+4. **Meaningful**: Reflects the purpose or content of the variable
+
+<Note>
+While underscores are allowed in Dart variable names (like `apellido_paterno_alumno`), the Dart style guide recommends using camelCase instead (`apellidoPaternoAlumno`).
+</Note>
+
+## Bad Variable Names to Avoid
+
+Avoid using single letters, abbreviations, or non-descriptive names:
+
+```dart
+void main() {
+  //Esta prohibido usar nombres de variables asi:
+  var a = 10;
+  var c = 'Luisa';
+  var num1= 78;
+  var numero1 = 3;
+  print(a + num1 + numero1);
+  print(c);
+}
+```
+
+### Why These Are Bad:
+
+- `a`: Too short, doesn't indicate what it represents
+- `c`: Single letter, could mean anything
+- `num1`, `numero1`: Generic names with numbers, not descriptive
+
+<Info>
+While this code works, it's difficult to understand and maintain. Good variable names make your code self-documenting.
+</Info>
+
+## Complete Example
+
+Here's the full example showing both good and bad practices:
+
+```dart
+void main() {
+  //como nombrar una variable correctamente
+  //Siempre se debe usar un nombre sin abreviaturas y que refleje
+  //lo que almacenara y son en minúsculas.
+
+  //Tipado Inferido con el VAR
+  var edad = 18;
+  var nombre = 'Juan';
+  var curp = 'AGDTHTMSLF02';
+  var estadoCivil = 'Soltero';
+  var apellido_paterno_alumno = 'Fernández';
+  print(edad);
+  print(nombre);
+  print(curp);
+  print(estadoCivil);
+  print(apellido_paterno_alumno);
+
+  //Esta prohibido usar nombres de variables asi:
+  var a = 10;
+  var c = 'Luisa';
+  var num1= 78;
+  var numero1 = 3;
+  print(a + num1 + numero1);
+  print(c);
+}
+```
+
+## Key Takeaways
+
+- Use `var` for type inference when the type is obvious from the assigned value
+- Choose descriptive, meaningful variable names
+- Follow camelCase naming convention
+- Avoid single letters and generic names like `num1` or `var1`
+- Make your code self-documenting through good naming

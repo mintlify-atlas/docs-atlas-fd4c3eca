@@ -1,0 +1,101 @@
+---
+title: 'Function Parameters'
+description: 'Learn how to use parameters to make functions more flexible and reusable in Dart'
+---
+
+# Function Parameters
+
+Parameters allow you to pass data into functions, making them more flexible and reusable. Instead of hardcoding values, you can write functions that work with different inputs.
+
+## Syntax
+
+```dart
+returnType functionName(type parameter1, type parameter2) {
+  // Function body using parameters
+  return value;
+}
+```
+
+## Function with Parameters Example
+
+Here's a function that accepts two integer parameters and returns their sum:
+
+```dart
+int operacion(int valorUno, int valorDos){
+  int suma = valorUno + valorDos;
+  return suma;
+}
+```
+
+## Calling Functions with Parameters
+
+When calling a function with parameters, you must provide values (arguments) for each parameter:
+
+```dart
+int resultado = operacion(10, 15);
+print('El Resultado es: $resultado');  // Output: 25
+```
+
+## Complete Example
+
+Here's a complete example showing different ways to call a parameterized function:
+
+```dart
+int operacion(int valorUno, int valorDos){
+  int suma = valorUno + valorDos;
+  return suma;
+}
+
+void main() {
+  // Method 1: Store result in variable
+  int resultado = operacion(10, 15);
+  print('El Resultado es: $resultado');
+
+  // Method 2: Use in string interpolation
+  print('\nEl Resultado es: ${operacion(3, 5)}');
+
+  // Method 3: Direct usage
+  print(operacion(20, 2));
+}
+```
+
+### Output
+
+```
+El Resultado es: 25
+
+El Resultado es: 8
+22
+```
+
+<Note>
+The order of arguments matters! They must be passed in the same order as the parameters are declared in the function signature.
+</Note>
+
+## Key Points
+
+- Parameters are declared inside parentheses with their type and name
+- Multiple parameters are separated by commas
+- Arguments must be provided in the same order as parameters
+- Each function call can use different values for the parameters
+- Parameters make functions reusable for different scenarios
+
+<Tip>
+Using parameters instead of hardcoded values makes your functions more flexible and reduces code duplication.
+</Tip>
+
+## Parameter Types
+
+You can use any Dart type as a parameter:
+
+- `int` for integers
+- `double` for decimal numbers
+- `String` for text
+- `bool` for true/false values
+- Custom classes and objects
+
+```dart
+void greet(String name, int age) {
+  print('Hello $name, you are $age years old');
+}
+```

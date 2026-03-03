@@ -1,0 +1,150 @@
+---
+title: "List Iteration"
+description: "Learn different ways to iterate and traverse lists in Dart"
+---
+
+## Introduction
+
+Iterating (or traversing) a list means going through each element one by one to perform operations. Dart provides multiple ways to iterate over lists.
+
+## For-In Loop
+
+The most concise way to iterate through all elements:
+
+```dart
+List<String> nombres = ['Juan', 'Maria', 'Fernanda', 'Maria', 'Luisa'];
+
+//Recorrer o Iterar una Lista
+for (var nombre in nombres) {
+  print(nombre);
+}
+```
+
+<Tip>
+  The for-in loop is ideal when you need to access each element but don't need the index.
+</Tip>
+
+## Searching While Iterating
+
+You can search for elements while iterating:
+
+```dart
+print('');
+int contador = 0;
+for (var nombre in nombres) {
+  if (nombre == 'Luisa')
+    print('Nombre Encontrado en posición $contador');
+  contador += 1;
+}
+```
+
+## Traditional For Loop with Index
+
+Use a traditional for loop when you need access to the index:
+
+```dart
+//Modificar el valor de un elemento de la lista
+for (int i = 0; i < nombres.length; i++) {
+  // Modificamos el elemento directamente usando su índice
+  if (nombres[i] == 'Maria') {
+    nombres[i] = 'María';
+    print('Elemento Modificado...');
+  }
+}
+```
+
+<Note>
+  Use indexed loops when you need to modify elements in place or when you need to know the position of each element.
+</Note>
+
+## forEach() Method
+
+Another way to iterate is using the `forEach()` method:
+
+```dart
+List<int> notas = [85, 92, 78];
+
+// Mostrar cada elemento de la lista
+for (int nota in notas) {
+  print(nota);
+}
+```
+
+## Complete Example: Name List Management
+
+Here's a complete example demonstrating all iteration techniques:
+
+```dart
+void main() {
+  List<String> nombres = ['Juan', 'Maria', 'Fernanda', 'Maria', 'Luisa'];
+
+  //Recorrer o Iterar una Lista
+  for (var nombre in nombres) {
+    print(nombre);
+  }
+
+  //Buscar un elemento de la lista
+  print('');
+  int contador = 0;
+  for (var nombre in nombres) {
+    if (nombre == 'Luisa')
+      print('Nombre Encontrado en posición $contador');
+    contador += 1;
+  }
+
+  //Modificar el valor de un elemento de la lista
+  for (int i = 0; i < nombres.length; i++) {
+    // Modificamos el elemento directamente usando su índice
+    if (nombres[i] == 'Maria') {
+      nombres[i] = 'María';
+      print('Elemento Modificado...');
+    }
+  }
+
+  print('');
+  for (var nombre in nombres) {
+    print(nombre);
+  }
+}
+```
+
+## Calculating with Iteration
+
+Common use case - calculating aggregate values:
+
+```dart
+void main() {
+  List<int> notas = [85, 92, 78];
+
+  // Agregar una nota
+  notas.add(95);
+
+  // Mostrar cada elemento de la lista
+  for (int nota in notas) {
+    print(nota);
+  }
+
+  // Calcular promedio
+  int suma = 0;
+  for (int nota in notas) {
+    suma += nota;
+  }
+  double promedio = suma / notas.length;
+  print('Promedio: $promedio');
+}
+```
+
+## When to Use Each Method
+
+| Method | Use When |
+|--------|----------|
+| **for-in** | You only need the element value |
+| **indexed for** | You need to modify elements or know their position |
+| **forEach()** | You want a functional programming style |
+
+## Key Takeaways
+
+- Use `for (var item in list)` for simple iteration
+- Use indexed loops `for (int i = 0; i < list.length; i++)` when you need to modify elements
+- You can search and modify elements while iterating
+- Keep track of indices manually when using for-in loops if needed

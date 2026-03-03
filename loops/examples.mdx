@@ -1,0 +1,165 @@
+---
+title: 'Practical Loop Examples'
+description: 'Real-world examples using loops to solve common programming problems'
+---
+
+# Practical Loop Examples
+
+This page demonstrates practical applications of loops in Dart by solving real programming problems. We'll work with a range of numbers from 100 to 150 to find prime numbers, odd numbers, and multiples of 7.
+
+## Problem Statement
+
+Create a program that finds and prints the following within the range 100 to 150:
+- Prime numbers
+- Odd numbers
+- Multiples of 7
+
+## Finding Prime Numbers
+
+A prime number is a number greater than 1 that has no positive divisors other than 1 and itself.
+
+```dart
+int contador;
+print('\Números Primos');
+for (var i = 100; i <= 150; i++) {
+  contador = 0;
+  for (var j = 1; j <= i; j++) {
+    if ( i % j == 0) {
+      contador++;
+    }
+  }
+  if (contador == 2){
+    print('El Número $i es Primo');
+  }
+}
+```
+
+### How the Algorithm Works
+
+<Steps>
+  <Step title="Outer loop iterates through range">
+    Loop through numbers from 100 to 150
+  </Step>
+  <Step title="Reset counter for each number">
+    Initialize `contador` to 0 for each number being tested
+  </Step>
+  <Step title="Inner loop counts divisors">
+    Check how many numbers from 1 to i divide evenly into i
+  </Step>
+  <Step title="Check if prime">
+    If exactly 2 divisors exist (1 and itself), the number is prime
+  </Step>
+</Steps>
+
+<Note>
+  Prime numbers in the range 100-150: 101, 103, 107, 109, 113, 127, 131, 137, 139, 149
+</Note>
+
+## Finding Odd Numbers
+
+Odd numbers are integers that are not divisible by 2.
+
+```dart
+print('\nNúmeros Impares');
+for (var i = 101; i <= 150; i += 2) {
+  print('El Número $i es Impar');
+}
+```
+
+### Optimization Technique
+
+<Tip>
+  Instead of checking every number with `i % 2 != 0`, we start at 101 (first odd number in range) and increment by 2. This is more efficient as it skips even numbers entirely.
+</Tip>
+
+## Finding Multiples of 7
+
+Multiples of 7 are numbers that can be divided by 7 with no remainder.
+
+```dart
+print('\nMúltiplos de 7');
+for (var i = 100; i <= 150; i++) {
+  if ( i % 7 == 0){
+    print('Número $i es Múltiplo de 7');
+  }
+}
+```
+
+### The Modulo Operator
+
+The modulo operator `%` returns the remainder of division. If `i % 7 == 0`, the number divides evenly by 7.
+
+<Info>
+  Multiples of 7 in the range 100-150: 105, 112, 119, 126, 133, 140, 147
+</Info>
+
+## Complete Working Program
+
+```dart
+void main() {
+  //Hacer un programa que imprima dentro del rango comprendido del 100 al 150 lo siguiente:
+  //- Números Primos
+  //- Números Impares
+  //- Múltiplos de 7
+
+  //Números Primos
+  int contador;
+  print('\Números Primos');
+  for (var i = 100; i <= 150; i++) {
+    contador = 0;
+    for (var j = 1; j <= i; j++) {
+      if ( i % j == 0) {
+        contador++;
+      }
+    }
+    if (contador == 2){
+      print('El Número $i es Primo');
+    }
+  }
+
+  //Números Impares
+  print('\nNúmeros Impares');
+  for (var i = 101; i <= 150; i += 2) {
+    print('El Número $i es Impar');
+  }
+
+  //Múltiplos de 7
+  print('\nMúltiplos de 7');
+  for (var i = 100; i <= 150; i++) {
+    if ( i % 7 == 0){
+      print('Número $i es Múltiplo de 7');
+    }
+  }
+}
+```
+
+## Key Concepts Demonstrated
+
+<CardGroup cols={2}>
+  <Card title="Nested Loops" icon="layer-group">
+    Using one loop inside another for complex calculations (prime number detection)
+  </Card>
+  <Card title="Conditional Logic" icon="code-branch">
+    Combining loops with if statements to filter results
+  </Card>
+  <Card title="Modulo Operator" icon="percent">
+    Using % to check divisibility and find remainders
+  </Card>
+  <Card title="Loop Optimization" icon="gauge-high">
+    Starting at specific values and using custom increments for efficiency
+  </Card>
+</CardGroup>
+
+## Performance Considerations
+
+<AccordionGroup>
+  <Accordion title="Prime Number Algorithm">
+    The current algorithm checks all numbers from 1 to i. This can be optimized by only checking up to the square root of i, as factors come in pairs.
+  </Accordion>
+  <Accordion title="Odd Number Detection">
+    Starting at the first odd number and incrementing by 2 is much more efficient than checking every number with modulo.
+  </Accordion>
+  <Accordion title="Multiple Detection">
+    For finding multiples, you could also start at the first multiple (105) and increment by 7 instead of checking every number.
+  </Accordion>
+</AccordionGroup>

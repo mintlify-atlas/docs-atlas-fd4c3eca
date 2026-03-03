@@ -1,0 +1,93 @@
+---
+title: 'Functions with Return Values'
+description: 'Learn how to create functions that return values in Dart'
+---
+
+# Functions with Return Values
+
+Functions can return values to the caller using the `return` keyword. You specify the return type before the function name.
+
+## Syntax
+
+```dart
+returnType functionName() {
+  // Function body
+  return value;
+}
+```
+
+## Basic Return Example
+
+Here's a function that performs a calculation and returns the result:
+
+```dart
+int operacion(){
+  int valorUno = 10;
+  int valorDos = 15;
+  int suma = valorUno + valorDos;
+  return suma;
+}
+```
+
+## Using Return Values
+
+There are multiple ways to use the value returned by a function:
+
+### 1. Storing in a Variable
+
+```dart
+int resultado = operacion();
+print('El Resultado es: $resultado');
+```
+
+### 2. Using in String Interpolation
+
+```dart
+print('\nEl Resultado es: ${operacion()}');
+```
+
+### 3. Direct Usage
+
+```dart
+print(operacion());
+```
+
+## Complete Example
+
+Here's the complete working example showing all three methods:
+
+```dart
+int operacion(){
+  int valorUno = 10;
+  int valorDos = 15;
+  int suma = valorUno + valorDos;
+  return suma;
+}
+
+void main() {
+  // Method 1: Store in variable
+  int resultado = operacion();
+  print('El Resultado es: $resultado');
+
+  // Method 2: String interpolation
+  print('\nEl Resultado es: ${operacion()}');
+
+  // Method 3: Direct print
+  print(operacion());
+}
+```
+
+<Note>
+The return type must match the type of value being returned. In this example, we return an `int`, so the function is declared with `int` as the return type.
+</Note>
+
+## Key Points
+
+- Specify the return type before the function name (`int`, `String`, `double`, etc.)
+- Use the `return` keyword followed by the value to return
+- The returned value can be stored, used in expressions, or passed to other functions
+- Each function call executes the function code again and returns a new result
+
+<Tip>
+Functions with return values make your code more flexible and reusable by allowing you to use the computed values in different contexts.
+</Tip>

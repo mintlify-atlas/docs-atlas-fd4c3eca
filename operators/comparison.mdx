@@ -1,0 +1,186 @@
+---
+title: 'Comparison Operators'
+description: 'Learn how to use comparison operators in Dart to compare values and make decisions'
+---
+
+# Comparison Operators
+
+Comparison operators in Dart are used to compare two values and return a boolean result (`true` or `false`).
+
+## Available Operators
+
+<CardGroup cols={2}>
+  <Card title="== (Equal)" icon="equals">
+    Checks if two values are equal
+  </Card>
+  <Card title="!= (Not Equal)" icon="not-equal">
+    Checks if two values are different
+  </Card>
+  <Card title="> (Greater Than)" icon="greater-than">
+    Checks if left is greater than right
+  </Card>
+  <Card title="< (Less Than)" icon="less-than">
+    Checks if left is less than right
+  </Card>
+  <Card title=">= (Greater or Equal)" icon="greater-than-equal">
+    Checks if left is greater than or equal to right
+  </Card>
+  <Card title="<= (Less or Equal)" icon="less-than-equal">
+    Checks if left is less than or equal to right
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+Here's a comprehensive example demonstrating all comparison operators:
+
+```dart
+void main() {
+  //Operadores de Comparación
+
+  int edad = 18;
+
+  print(edad == 18);   // Igual: true
+  print(edad != 18);   // Diferente: false
+  print(edad > 17);    // Mayor que: true
+  print(edad < 18);    // Menor que: false
+  print(edad >= 18);   // Mayor o igual: true
+  print(edad <= 18);   // Menor o igual: true
+
+}
+```
+
+## Operator Details
+
+### Equal (`==`)
+Returns `true` if both values are equal.
+
+```dart
+int edad = 18;
+print(edad == 18);  // true
+print(edad == 20);  // false
+```
+
+### Not Equal (`!=`)
+Returns `true` if the values are different.
+
+```dart
+int edad = 18;
+print(edad != 18);  // false
+print(edad != 20);  // true
+```
+
+### Greater Than (`>`)
+Returns `true` if the left value is greater than the right value.
+
+```dart
+int edad = 18;
+print(edad > 17);  // true
+print(edad > 18);  // false
+```
+
+### Less Than (`<`)
+Returns `true` if the left value is less than the right value.
+
+```dart
+int edad = 18;
+print(edad < 18);  // false
+print(edad < 20);  // true
+```
+
+### Greater Than or Equal (`>=`)
+Returns `true` if the left value is greater than or equal to the right value.
+
+```dart
+int edad = 18;
+print(edad >= 18);  // true
+print(edad >= 17);  // true
+print(edad >= 19);  // false
+```
+
+### Less Than or Equal (`<=`)
+Returns `true` if the left value is less than or equal to the right value.
+
+```dart
+int edad = 18;
+print(edad <= 18);  // true
+print(edad <= 19);  // true
+print(edad <= 17);  // false
+```
+
+## Practical Use Cases
+
+<AccordionGroup>
+  <Accordion title="Age Verification">
+    ```dart
+    int age = 18;
+    if (age >= 18) {
+      print('Adult');
+    } else {
+      print('Minor');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Range Checking">
+    ```dart
+    int score = 85;
+    if (score >= 90) {
+      print('A');
+    } else if (score >= 80) {
+      print('B');
+    } else if (score >= 70) {
+      print('C');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Equality Checking">
+    ```dart
+    String password = 'secret';
+    String input = 'secret';
+    
+    if (password == input) {
+      print('Access granted');
+    } else {
+      print('Access denied');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Validation">
+    ```dart
+    int quantity = 5;
+    if (quantity > 0) {
+      print('Valid quantity');
+    } else {
+      print('Invalid quantity');
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Important Notes
+
+<Note>
+  Comparison operators always return a boolean value: either `true` or `false`.
+</Note>
+
+<Warning>
+  When comparing objects, `==` compares values, not references. For custom classes, you may need to override the `==` operator.
+</Warning>
+
+<Tip>
+  Comparison operators are commonly used in conditional statements (`if`, `while`, `for`) and ternary expressions.
+</Tip>
+
+## Chaining Comparisons
+
+You can combine comparison operators with logical operators for complex conditions:
+
+```dart
+int age = 25;
+if (age >= 18 && age <= 65) {
+  print('Working age');
+}
+```

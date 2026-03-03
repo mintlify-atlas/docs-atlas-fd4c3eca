@@ -1,0 +1,106 @@
+---
+title: "Lists"
+description: "Learn how to create and perform basic operations with Lists in Dart"
+---
+
+## Introduction
+
+Lists are ordered collections of objects in Dart. They allow you to store multiple values in a single variable and access them by index.
+
+## Creating a List
+
+You can create a list by enclosing elements in square brackets:
+
+```dart
+List<int> numeros = [10, 20, 30];
+print(numeros); // [10, 20, 30]
+```
+
+<Note>
+  The `List<int>` declaration specifies that this list can only contain integers. This is called type safety.
+</Note>
+
+## Adding Elements
+
+### Using add()
+
+Add a single element to the end of the list:
+
+```dart
+numeros.add(40); // Adds at the end: [10, 20, 30, 40]
+print(numeros);
+```
+
+### Using addAll()
+
+Add multiple elements at once:
+
+```dart
+numeros.addAll([50, 60]);  // Adds multiple: [10, 20, 30, 40, 50, 60]
+print(numeros);
+```
+
+## Removing Elements
+
+### Using remove()
+
+Remove an element by its value:
+
+```dart
+numeros.remove(20);        // Removes the value 20
+print(numeros);
+```
+
+### Using removeAt()
+
+Remove an element by its index:
+
+```dart
+numeros.removeAt(0);       // Removes element at index 0
+print(numeros);
+```
+
+## Accessing Elements
+
+Access individual elements using bracket notation:
+
+```dart
+print(numeros[0]); // First element
+print(numeros[3]); // Fourth element (index 3)
+```
+
+<Tip>
+  List indices start at 0, so the first element is at index 0.
+</Tip>
+
+## Complete Example
+
+```dart
+void main() {
+  List<int> numeros = [10, 20, 30];
+  print(numeros);
+
+  // AGREGAR elementos
+  numeros.add(40); // Agrega al final: [10, 20, 30, 40]
+  print(numeros);
+  numeros.addAll([50, 60]);  // Agrega múltiples: [10, 20, 30, 40, 50, 60]
+  print(numeros);
+
+  // ELIMINAR elementos
+  numeros.remove(20);        // Elimina el valor 20
+  print(numeros);
+  numeros.removeAt(0);       // Elimina en índice 0
+  print(numeros);
+
+  //Imprimir solo el valor de la posición
+  print(numeros[0]);
+  print(numeros[3]);
+}
+```
+
+## Key Takeaways
+
+- Lists store multiple values in an ordered collection
+- Use `add()` to add a single element, `addAll()` for multiple elements
+- Use `remove()` to delete by value, `removeAt()` to delete by index
+- Access elements using bracket notation with the index

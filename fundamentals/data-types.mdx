@@ -1,0 +1,202 @@
+---
+title: 'Data Types'
+description: 'Understanding Dart data types: int, double, String, bool, and dynamic'
+---
+
+## Introduction to Dart Data Types
+
+Dart is a statically-typed language, which means every variable has a type. Understanding data types is fundamental to writing effective Dart code.
+
+## Integer (`int`)
+
+The `int` type represents whole numbers (integers) without decimal points.
+
+```dart
+int numero = 10;
+int edad = 18;
+int entero = -1235424321213234342;
+int valor = 1234500000000020100;
+print(numero);
+print(valor);
+print(entero);
+print(edad);
+```
+
+<Info>
+Dart `int` can store very large numbers, both positive and negative, limited only by available memory.
+</Info>
+
+### When to Use `int`
+
+- Counting items
+- Storing ages
+- Representing quantities that don't need decimal precision
+- Mathematical operations with whole numbers
+
+## Double (`double`)
+
+The `double` type represents numbers with decimal points (floating-point numbers).
+
+```dart
+double promedio = 9.4;
+double numeroDos = 0.50;
+double numeroUno = 19.0;
+double doble = 12434534534535555.8768618345685623423345352345;
+print(doble);
+print(promedio);
+print(numeroUno);
+print(numeroDos);
+```
+
+<Note>
+While `double` can store many decimal places, there are precision limits due to how floating-point numbers are represented in memory.
+</Note>
+
+### When to Use `double`
+
+- Storing prices or currency values
+- Calculating averages and percentages
+- Scientific calculations requiring decimal precision
+- Any value that needs fractional components
+
+## String (`String`)
+
+The `String` type represents text data. Strings can be created using either single quotes (`'`) or double quotes (`"`).
+
+```dart
+String cadena = 'Cualquier texto es válido entre comillas';
+String sexo = "Masculino";
+String numeroCadena = '56';
+String espacio = ' ';
+String nulo = '';
+print(espacio + sexo);
+print(nulo + numeroCadena);
+print(cadena);
+```
+
+<Tip>
+You can concatenate strings using the `+` operator, as shown in the example with `espacio + sexo`.
+</Tip>
+
+### String Features
+
+- Can be empty (`''`)
+- Can contain spaces and special characters
+- Can be concatenated with the `+` operator
+- Numbers can be stored as strings (like `'56'`)
+
+## Boolean (`bool`)
+
+The `bool` type represents logical values: `true` or `false`.
+
+```dart
+bool esEstudiante = true;
+bool esMayorEdad = false;
+print(esMayorEdad);
+print(esEstudiante);
+```
+
+### When to Use `bool`
+
+- Storing yes/no, on/off, true/false states
+- Conditional logic and control flow
+- Flags to track program state
+- Validation results
+
+<Info>
+Booleans are essential for conditional statements (`if`, `while`, etc.) and logic operations.
+</Info>
+
+## Dynamic (`dynamic`)
+
+The `dynamic` type is special - it can hold any type of value and can change types during runtime.
+
+```dart
+dynamic valorDinamico = 10;
+valorDinamico = 'Puedo cambiar a String';
+valorDinamico = false;
+valorDinamico = 8.3;
+print(valorDinamico);
+```
+
+<Note>
+While `dynamic` offers flexibility, it bypasses Dart's type safety. Use it sparingly and only when necessary, as it can lead to runtime errors that would otherwise be caught at compile time.
+</Note>
+
+### When to Use `dynamic`
+
+- Working with data from external sources where the type isn't known at compile time
+- Interfacing with dynamic languages or APIs
+- Advanced scenarios requiring runtime type flexibility
+
+### When NOT to Use `dynamic`
+
+- When the type is known or can be inferred
+- In most regular programming scenarios
+- When type safety is important for your application
+
+## Complete Example
+
+Here's the complete example showing all data types:
+
+```dart
+void main() {
+  //Tipos de Datos en Dart
+  //int - Números enteros
+  int numero = 10;
+  int edad = 18;
+  int entero = -1235424321213234342;
+  int valor = 1234500000000020100;
+  print(numero);
+  print(valor);
+  print(entero);
+  print(edad);
+
+  //double - Números decimales
+  double promedio = 9.4;
+  double numeroDos = 0.50;
+  double numeroUno = 19.0;
+  double doble = 12434534534535555.8768618345685623423345352345;
+  print(doble);
+  print(promedio);
+  print(numeroUno);
+  print(numeroDos);
+
+  //String - Texto
+  String cadena = 'Cualquier texto es válido entre comillas';
+  String sexo = "Masculino";
+  String numeroCadena = '56';
+  String espacio = ' ';
+  String nulo = '';
+  print(espacio + sexo);
+  print(nulo + numeroCadena);
+  print(cadena);
+
+  // bool - Booleanos (verdadero/falso)
+  bool esEstudiante = true;
+  bool esMayorEdad = false;
+  print(esMayorEdad);
+  print(esEstudiante);
+
+  //dynamic - Tipo dinámico
+  dynamic valorDinamico = 10;
+  valorDinamico = 'Puedo cambiar a String';
+  valorDinamico = false;
+  valorDinamico = 8.3;
+  print(valorDinamico);
+}
+```
+
+## Data Type Summary
+
+| Type | Description | Example |
+|------|-------------|----------|
+| `int` | Whole numbers | `42`, `-100` |
+| `double` | Decimal numbers | `3.14`, `9.99` |
+| `String` | Text data | `'Hello'`, `"World"` |
+| `bool` | True/False values | `true`, `false` |
+| `dynamic` | Any type (changes at runtime) | Can be any value |
+
+<Tip>
+Prefer specific types (`int`, `double`, `String`, `bool`) over `dynamic` whenever possible for better type safety and code clarity.
+</Tip>

@@ -1,0 +1,324 @@
+---
+title: Grade calculator system
+description: Advanced example demonstrating maps, lists, functions, and data analysis in a complete grade management system
+---
+
+This advanced example (from `32_ejercicio_diccionario_avanzado.dart`) demonstrates how to build a complete grade management system using multiple Dart concepts together. It's a real-world application that tracks grades across multiple subjects and performs statistical analysis.
+
+## What you'll learn
+
+This example combines several important Dart concepts:
+
+- **Nested data structures**: `Map<String, List<int>>` for organizing grades by subject
+- **Multiple functions**: Breaking down complex logic into reusable pieces
+- **Map iteration**: Using `.forEach()` to process key-value pairs
+- **List processing**: Calculating sums and averages from lists
+- **Conditional logic**: Finding maximum and minimum values
+- **Function parameters**: Passing maps between functions
+
+## System requirements
+
+The grade calculator system must:
+
+1. Calculate the average grade for each subject
+2. Identify the subject with the highest average
+3. Identify the subject with the lowest average
+4. Print a complete report of all grades
+
+## Data structure
+
+The system uses a nested map where:
+- **Keys**: Subject names (String)
+- **Values**: Lists of integer grades
+
+```dart
+Map<String, List<int>> calificacionesMateria = {
+  'Matemáticas'  : [85, 90, 88],
+  'Español'      : [92, 88, 95],
+  'Inglés'       : [78, 82, 80],
+  'Programación' : [95, 98, 96]  
+};
+```
+
+<Note>
+This nested structure allows you to store multiple grades per subject and easily iterate through all subjects.
+</Note>
+
+## Complete implementation
+
+Here's the full working code:
+
+```dart
+void calcularPromedios(Map<String, List<int>> calificacionesMateria, Map<String, double> promedios ){
+  calificacionesMateria.forEach((materia, calificaciones){
+    int suma = 0;
+    for (var calificacion in calificaciones) {
+      suma = suma + calificacion;
+    }
+    double promedio = suma / calificaciones.length;
+    //Guardamos la materia con su promedio en el Mapa
+    promedios[materia] = promedio;
+  });
+}
+
+void obtenerMejorMateria(Map<String, double> promedios){
+  //Obtener la materia con mejor promedio
+  String mejorMateria = '';
+  double mejorPromedio = 0.0;
+  promedios.forEach((materia, promedio){
+    if (promedio > mejorPromedio){
+      mejorPromedio = promedio;
+      mejorMateria = materia;
+    }
+  });
+  //Encuentra la materia con el mejor promedio
+  print('\nMATERIA MEJOR PROMEDIO: $mejorMateria');
+}
+
+void obtenerPeorMateria(Map<String, double> promedios){
+  //Obtener la peor materia por promedio
+  String peorMateria = '';
+  double peorPromedio = 100.0;
+  promedios.forEach((materia, promedio){
+    if (promedio < peorPromedio){
+      peorPromedio = promedio;
+      peorMateria = materia;
+    }
+  });
+  //Encuentra la materia con el peor promedio
+  print('\nMATERIA PEOR PROMEDIO: $peorMateria');
+}
+
+void imprimirPromedioMateria(Map<String, double> promedios){
+  //El promedio de cada materia
+  print('\n==== PROMEDIOS POR CADA MATERIA ====');
+  promedios.forEach((materia, promedio){
+    print('Materia: $materia - Promedio: $promedio');
+  });
+}
+
+void reporteCompleto(Map<String, List<int>> calificacionesMateria){
+  //Imprime reporte completo.
+  print('\n==== MATERIAS CON SUS CALIFICACIONES ====');
+  calificacionesMateria.forEach((materia, calificaciones){
+    print('Materia: $materia - $calificaciones');
+  });
+  print('');
+}
+
+void main() {
+  Map<String, List<int>> calificacionesMateria = {
+    'Matemáticas'  : [85, 90, 88],
+    'Español'      : [92, 88, 95],
+    'Inglés'       : [78, 82, 80],
+    'Programación' : [95, 98, 96]  
+  };
+
+  Map<String, double> promedios = {};
+
+  calcularPromedios(calificacionesMateria, promedios);
+  imprimirPromedioMateria(promedios);
+  obtenerMejorMateria(promedios);
+  obtenerPeorMateria(promedios);
+  reporteCompleto(calificacionesMateria);
+}
+```
+
+## Function breakdown
+
+<Steps>
+  <Step title="Calculate averages">
+    **`calcularPromedios()`** iterates through each subject and its grades, calculating the average.
+    
+    - Uses `.forEach()` to iterate the map
+    - Sums all grades in the list with a `for` loop
+    - Divides by list length for average
+    - Stores result in the `promedios` map
+  </Step>
+  
+  <Step title="Find best subject">
+    **`obtenerMejorMateria()`** identifies which subject has the highest average.
+    
+    - Initializes tracking variables (`mejorMateria`, `mejorPromedio`)
+    - Iterates through averages map
+    - Updates tracking variables when higher average found
+    - Prints the result
+  </Step>
+  
+  <Step title="Find worst subject">
+    **`obtenerPeorMateria()`** identifies which subject has the lowest average.
+    
+    - Similar logic to best subject finder
+    - Starts with high initial value (100.0)
+    - Updates when lower average found
+  </Step>
+  
+  <Step title="Print subject averages">
+    **`imprimirPromedioMateria()`** displays all calculated averages.
+    
+    - Simple iteration through `promedios` map
+    - Formatted output for readability
+  </Step>
+  
+  <Step title="Generate full report">
+    **`reporteCompleto()`** shows raw grade data for all subjects.
+    
+    - Displays the original data structure
+    - Useful for verification and reference
+  </Step>
+</Steps>
+
+## Program execution flow
+
+```dart
+void main() {
+  // 1. Define the data structure with sample grades
+  Map<String, List<int>> calificacionesMateria = { /* ... */ };
+  
+  // 2. Create empty map to store calculated averages
+  Map<String, double> promedios = {};
+  
+  // 3. Calculate all averages and populate promedios map
+  calcularPromedios(calificacionesMateria, promedios);
+  
+  // 4. Display results in order:
+  imprimirPromedioMateria(promedios);  // Show all averages
+  obtenerMejorMateria(promedios);      // Show best subject
+  obtenerPeorMateria(promedios);       // Show worst subject
+  reporteCompleto(calificacionesMateria); // Show raw data
+}
+```
+
+## Expected output
+
+```
+==== PROMEDIOS POR CADA MATERIA ====
+Materia: Matemáticas - Promedio: 87.66666666666667
+Materia: Español - Promedio: 91.66666666666667
+Materia: Inglés - Promedio: 80.0
+Materia: Programación - Promedio: 96.33333333333333
+
+MATERIA MEJOR PROMEDIO: Programación
+
+MATERIA PEOR PROMEDIO: Inglés
+
+==== MATERIAS CON SUS CALIFICACIONES ====
+Materia: Matemáticas - [85, 90, 88]
+Materia: Español - [92, 88, 95]
+Materia: Inglés - [78, 82, 80]
+Materia: Programación - [95, 98, 96]
+```
+
+## Key concepts demonstrated
+
+### 1. Nested data structures
+
+The `Map<String, List<int>>` type signature demonstrates how Dart handles complex, nested data:
+
+```dart
+Map<String, List<int>> calificacionesMateria = {
+  'Matemáticas': [85, 90, 88],  // String key → List<int> value
+  // ...
+};
+```
+
+### 2. Map iteration with forEach
+
+Instead of traditional loops, Dart's `.forEach()` provides clean access to both keys and values:
+
+```dart
+calificacionesMateria.forEach((materia, calificaciones){
+  // materia is the key (String)
+  // calificaciones is the value (List<int>)
+});
+```
+
+### 3. Accumulator patterns
+
+Classic accumulator pattern for calculating sums and finding extremes:
+
+```dart
+int suma = 0;
+for (var calificacion in calificaciones) {
+  suma = suma + calificacion;
+}
+double promedio = suma / calificaciones.length;
+```
+
+### 4. Function composition
+
+Breaking complex logic into focused, single-purpose functions:
+
+- Each function has a clear responsibility
+- Functions can be tested independently
+- Main function orchestrates the overall flow
+
+## Extending the system
+
+<Accordion title="Add more statistical functions">
+Calculate median, mode, or standard deviation:
+
+```dart
+double calcularMediana(List<int> calificaciones) {
+  var sorted = List.from(calificaciones)..sort();
+  int middle = sorted.length ~/ 2;
+  if (sorted.length % 2 == 0) {
+    return (sorted[middle - 1] + sorted[middle]) / 2;
+  }
+  return sorted[middle].toDouble();
+}
+```
+</Accordion>
+
+<Accordion title="Add student tracking">
+Extend to track multiple students with nested maps:
+
+```dart
+Map<String, Map<String, List<int>>> estudiantes = {
+  'Juan': {
+    'Matemáticas': [85, 90, 88],
+    'Español': [92, 88, 95],
+  },
+  'María': {
+    'Matemáticas': [95, 98, 92],
+    'Español': [88, 85, 90],
+  }
+};
+```
+</Accordion>
+
+<Accordion title="Add grade validation">
+Ensure grades are in valid range (0-100):
+
+```dart
+bool validarCalificacion(int calificacion) {
+  return calificacion >= 0 && calificacion <= 100;
+}
+
+void agregarCalificacion(Map<String, List<int>> datos, 
+                         String materia, int calificacion) {
+  if (validarCalificacion(calificacion)) {
+    datos[materia]?.add(calificacion);
+  } else {
+    print('Error: Calificación fuera de rango');
+  }
+}
+```
+</Accordion>
+
+## Related examples
+
+<CardGroup cols={2}>
+  <Card title="Maps basics" icon="book" href="/collections/maps">
+    Learn the fundamentals of Dart maps
+  </Card>
+  <Card title="List operations" icon="list" href="/collections/list-operations">
+    Understand list manipulation methods
+  </Card>
+  <Card title="Functions" icon="function" href="/functions/basic-functions">
+    Master function creation and parameters
+  </Card>
+  <Card title="All examples" icon="grid" href="/examples/overview">
+    Browse the complete example collection
+  </Card>
+</CardGroup>

@@ -1,0 +1,174 @@
+---
+title: 'Arrow Functions'
+description: 'Learn how to use arrow syntax for concise single-expression functions in Dart'
+---
+
+# Arrow Functions
+
+Arrow functions (also called fat arrow functions) provide a concise syntax for writing single-expression functions. They use the `=>` operator instead of curly braces and the `return` keyword.
+
+## Syntax
+
+```dart
+returnType functionName(parameters) => expression;
+```
+
+## Traditional vs Arrow Syntax
+
+### Traditional Function
+
+```dart
+int multiplicar(int a, int b) {
+  return a * b;
+}
+```
+
+### Arrow Function
+
+```dart
+int multiplicarFlecha(int a, int b) => a * b;
+```
+
+Both functions do exactly the same thing, but the arrow function is more concise!
+
+## Complete Example
+
+Here's a side-by-side comparison showing both syntaxes:
+
+```dart
+// Traditional form
+int multiplicar(int a, int b) {
+  return a * b;
+}
+
+// Arrow function
+int multiplicarFlecha(int a, int b) => a * b;
+
+void main() {
+  // Calling traditional function
+  print(multiplicar(4, 5));  // Output: 20
+
+  // Calling arrow function
+  print(multiplicarFlecha(4, 5));  // Output: 20
+}
+```
+
+### Output
+
+```
+20
+20
+```
+
+<Note>
+Arrow functions can only contain a single expression. The result of that expression is automatically returned.
+</Note>
+
+## When to Use Arrow Functions
+
+Arrow functions are ideal for:
+
+### 1. Simple Calculations
+
+```dart
+int suma(int a, int b) => a + b;
+double area(double radio) => 3.14159 * radio * radio;
+```
+
+### 2. Simple Return Statements
+
+```dart
+String saludo(String nombre) => 'Hola, $nombre';
+bool esPar(int numero) => numero % 2 == 0;
+```
+
+### 3. Getter Functions
+
+```dart
+class Circulo {
+  double radio;
+  Circulo(this.radio);
+  
+  double get area => 3.14159 * radio * radio;
+  double get circunferencia => 2 * 3.14159 * radio;
+}
+```
+
+### 4. Callback Functions
+
+```dart
+List<int> numeros = [1, 2, 3, 4, 5];
+List<int> cuadrados = numeros.map((n) => n * n).toList();
+```
+
+## More Arrow Function Examples
+
+### Mathematical Operations
+
+```dart
+int cuadrado(int n) => n * n;
+int cubo(int n) => n * n * n;
+double promedio(int a, int b) => (a + b) / 2;
+```
+
+### String Operations
+
+```dart
+String mayusculas(String texto) => texto.toUpperCase();
+String minusculas(String texto) => texto.toLowerCase();
+int longitud(String texto) => texto.length;
+```
+
+### Boolean Operations
+
+```dart
+bool esPositivo(int n) => n > 0;
+bool esAdulto(int edad) => edad >= 18;
+bool estaVacio(String texto) => texto.isEmpty;
+```
+
+## Limitations
+
+<Warning>
+Arrow functions can only contain a single expression. You cannot use multiple statements or complex logic.
+</Warning>
+
+### This WON'T Work
+
+```dart
+// ❌ Invalid - multiple statements
+int calcular(int a, int b) => 
+  int suma = a + b;
+  return suma * 2;
+```
+
+### Use Traditional Syntax Instead
+
+```dart
+// ✅ Valid - use curly braces for multiple statements
+int calcular(int a, int b) {
+  int suma = a + b;
+  return suma * 2;
+}
+```
+
+## Key Points
+
+- Use `=>` instead of `{}` and `return` for single-expression functions
+- The expression result is automatically returned
+- More concise and readable for simple functions
+- Cannot contain multiple statements
+- Works with any return type
+- Perfect for functional programming patterns
+
+<Tip>
+Arrow functions make your code cleaner and more readable when dealing with simple operations. Use them whenever you have a single-expression function!
+</Tip>
+
+## Best Practices
+
+1. Use arrow functions for simple, single-expression functions
+2. Use traditional syntax for complex logic or multiple statements
+3. Arrow functions are great for callbacks and functional programming
+4. Keep the expression simple and readable
+5. If the expression is too long or complex, use traditional syntax

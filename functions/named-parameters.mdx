@@ -1,0 +1,168 @@
+---
+title: 'Named Parameters'
+description: 'Learn how to use named parameters for more readable and flexible function calls in Dart'
+---
+
+# Named Parameters
+
+Named parameters allow you to specify arguments by name rather than position, making function calls more readable and flexible. They are declared using curly braces `{}`.
+
+## Syntax
+
+```dart
+returnType functionName({
+  required type parameter1,
+  type parameter2 = defaultValue
+}) {
+  // Function body
+}
+```
+
+## Named Parameters Example
+
+Here's a function using named parameters with both required and optional parameters:
+
+```dart
+void crearCuenta({
+  required usuario, 
+  required email, 
+  int edad = 18
+}) {
+  print('Usuario: $usuario, Email: $email, Edad: $edad');
+}
+```
+
+## Calling Functions with Named Parameters
+
+With named parameters, you specify the parameter name followed by a colon and the value:
+
+```dart
+crearCuenta(edad: 20, usuario: 'Pedro', email: 'pedro@hotmail.com');
+```
+
+## Complete Example
+
+```dart
+void crearCuenta({
+  required usuario, 
+  required email, 
+  int edad = 18
+}) {
+  print('Usuario: $usuario, Email: $email, Edad: $edad');
+}
+
+void main() {
+  // All parameters in different order
+  crearCuenta(edad: 20, usuario: 'Pedro', email: 'pedro@hotmail.com');
+  
+  // Without optional parameter
+  crearCuenta(email: 'juan@mail.com', usuario: 'juan');
+  
+  // Different order again
+  crearCuenta(usuario: 'maria', email: 'maria@mail.com', edad: 25);
+}
+```
+
+### Output
+
+```
+Usuario: Pedro, Email: pedro@hotmail.com, Edad: 20
+Usuario: juan, Email: juan@mail.com, Edad: 18
+Usuario: maria, Email: maria@mail.com, Edad: 25
+```
+
+<Note>
+The `required` keyword makes a named parameter mandatory. Without it, the parameter is optional and should have a default value.
+</Note>
+
+## Key Advantages
+
+### 1. Order Independence
+
+Arguments can be provided in any order:
+
+```dart
+crearCuenta(edad: 20, usuario: 'Pedro', email: 'pedro@hotmail.com');
+crearCuenta(usuario: 'Pedro', email: 'pedro@hotmail.com', edad: 20);
+// Both calls are equivalent!
+```
+
+### 2. Improved Readability
+
+Function calls are self-documenting:
+
+```dart
+// Clear what each argument represents
+crearCuenta(usuario: 'maria', email: 'maria@mail.com', edad: 25);
+```
+
+### 3. Optional Parameters
+
+Easily skip optional parameters without affecting order:
+
+```dart
+crearCuenta(email: 'juan@mail.com', usuario: 'juan');
+// edad uses default value of 18
+```
+
+## Required vs Optional Named Parameters
+
+### Required Parameters
+
+```dart
+void example({required String name, required int age}) {
+  // Must provide both name and age
+}
+```
+
+### Optional Parameters with Defaults
+
+```dart
+void example({String name = 'Guest', int age = 0}) {
+  // Both parameters are optional
+}
+```
+
+### Mixed
+
+```dart
+void example({required String name, int age = 18}) {
+  // name is required, age is optional
+}
+```
+
+<Tip>
+Use named parameters for functions with multiple parameters, especially when some are optional or when parameter order is not intuitive.
+</Tip>
+
+## Best Practices
+
+1. Use named parameters for functions with more than 2-3 parameters
+2. Mark essential parameters as `required`
+3. Provide sensible defaults for optional named parameters
+4. Use descriptive parameter names
+5. Consider named parameters for public APIs and libraries
+
+<Warning>
+You cannot mix positional optional parameters `[]` with named parameters `{}` in the same function.
+</Warning>
+
+## Comparison: Positional vs Named
+
+### Positional Parameters
+
+```dart
+void greet(String name, int age) {
+  print('Hello $name, age $age');
+}
+greet('John', 25);  // Must remember order
+```
+
+### Named Parameters
+
+```dart
+void greet({required String name, required int age}) {
+  print('Hello $name, age $age');
+}
+greet(age: 25, name: 'John');  // Order doesn't matter
+```

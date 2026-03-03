@@ -1,0 +1,130 @@
+---
+title: 'Type Conversion'
+description: 'Learn how to convert between different data types in Dart using int.parse(), double.parse(), toString(), and more'
+---
+
+# Type Conversion
+
+Dart provides several methods for converting between different data types. This is essential when you need to work with data in different formats.
+
+## String to Integer
+
+Use `int.parse()` to convert a String to an integer:
+
+```dart
+String variable = '50';
+int numero = int.parse(variable);
+// numero is now 50 as an integer
+```
+
+<Warning>
+  If the string cannot be parsed as an integer, `int.parse()` will throw a `FormatException`. Make sure the string contains a valid number.
+</Warning>
+
+## Integer to String
+
+Use the `toString()` method to convert an integer to a String:
+
+```dart
+int numero = 50;
+String valor = numero.toString();
+print(valor);
+// Output: 50 (as a string)
+```
+
+## Integer to Double
+
+Convert an integer to a double using the `toDouble()` method:
+
+```dart
+int numeroUno = 10;
+double dobleUno = numeroUno.toDouble();
+print(dobleUno);
+// Output: 10.0
+```
+
+## Double to Integer
+
+Convert a double to an integer using the `toInt()` method:
+
+```dart
+double dobleDos = 785634785847445.87926348268476234;
+int entero = dobleDos.toInt();
+
+print(dobleDos);
+print(entero);
+// Output: 785634785847445.9
+// Output: 785634785847445
+```
+
+<Note>
+  When converting from double to int, the decimal portion is truncated (not rounded). For example, 3.9 becomes 3, not 4.
+</Note>
+
+## Working with Large Numbers
+
+Dart can handle very large numbers:
+
+```dart
+int numeroUno = 10;
+int numeroDos = 23654675464513;
+print(numeroDos);
+// Output: 23654675464513
+
+double dobleDos = 785634785847445.87926348268476234;
+print(dobleDos);
+// Output: 785634785847445.9 (precision may be limited)
+```
+
+<Warning>
+  Dart doubles have limited precision. Very large numbers or numbers with many decimal places may lose precision when stored as doubles.
+</Warning>
+
+## Complete Example
+
+Here's a complete working example demonstrating all type conversions:
+
+```dart
+void main() {
+  // String to Integer
+  String variable = '50';
+  int numero = int.parse(variable);
+
+  // Integer to String
+  String valor = numero.toString();
+  print(valor);
+
+  // Working with large integers
+  int numeroUno = 10;
+  int numeroDos = 23654675464513;
+  print(numeroDos);
+
+  // Integer to Double
+  double dobleUno = numeroUno.toDouble();
+  double dobleDos = 785634785847445.87926348268476234;
+  print(dobleUno);
+
+  // Double to Integer
+  int entero = dobleDos.toInt();
+
+  print(dobleDos);
+  print(entero);
+}
+```
+
+## Common Type Conversion Methods
+
+<Steps>
+  <Step title="String to Number">
+    Use `int.parse('123')` or `double.parse('123.45')` to convert strings to numbers
+  </Step>
+  <Step title="Number to String">
+    Use `.toString()` method on any number type
+  </Step>
+  <Step title="Integer to Double">
+    Use `.toDouble()` method on integers
+  </Step>
+  <Step title="Double to Integer">
+    Use `.toInt()` method on doubles (truncates decimal portion)
+  </Step>
+</Steps>

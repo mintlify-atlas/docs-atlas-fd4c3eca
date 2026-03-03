@@ -1,0 +1,148 @@
+---
+title: 'Constants'
+description: 'Learn about constants in Dart using const and final keywords'
+---
+
+## Introduction to Constants
+
+Constants are values that cannot be changed after they are set. Dart provides two keywords for declaring constants: `const` and `final`. Understanding when to use each is important for writing efficient Dart code.
+
+## Naming Convention for Constants
+
+In Dart, constants are typically written in UPPERCASE letters to distinguish them from regular variables.
+
+<Tip>
+Using UPPERCASE names for constants makes them immediately recognizable in your code and follows common programming conventions.
+</Tip>
+
+## Using `const`
+
+The `const` keyword creates a compile-time constant. The value must be known at compile time and cannot change.
+
+```dart
+const NUMERO = 12;
+const REAL = 1213421.2345356;
+print(REAL);
+print(NUMERO);
+```
+
+### Compile-Time Constants
+
+`const` is used for values that are known before the program runs:
+
+```dart
+const PI = 3.1416;
+print(PI);
+const VELOCIDAD_LUZ = 299792458;
+print(VELOCIDAD_LUZ);
+```
+
+<Info>
+`const` values are evaluated at compile time, making them very efficient. Use `const` for mathematical constants, configuration values, and other data that never changes.
+</Info>
+
+### When to Use `const`
+
+- Mathematical constants (PI, e, etc.)
+- Physical constants (speed of light, gravitational constant)
+- Configuration values known at compile time
+- Fixed strings and numbers that never change
+- Collections that won't be modified
+
+## Using `final`
+
+The `final` keyword creates a runtime constant. The value is set once when the variable is initialized and cannot be changed afterward.
+
+```dart
+final fechaActual = DateTime.now();
+print(fechaActual);
+```
+
+<Note>
+Unlike `const`, `final` variables can be initialized with values that are only known at runtime, such as the current date/time, user input, or API responses.
+</Note>
+
+### When to Use `final`
+
+- Values that are set once but determined at runtime
+- Current date/time
+- User input that shouldn't change
+- API responses
+- Calculated values that won't be modified
+
+## `const` vs `final`: Key Differences
+
+| Feature | `const` | `final` |
+|---------|---------|----------|
+| **When evaluated** | Compile time | Runtime |
+| **Value must be known** | Before compilation | At initialization |
+| **Example use case** | `const PI = 3.1416` | `final now = DateTime.now()` |
+| **Memory efficiency** | More efficient (shared) | Less efficient (per instance) |
+| **Can use with runtime values** | No | Yes |
+
+## Complete Example
+
+Here's the full example demonstrating both `const` and `final`:
+
+```dart
+void main() {
+  //Uso de Constantes debe ser Mayúsculas.
+
+  const NUMERO = 12;
+  const REAL = 1213421.2345356;
+  print(REAL);
+  print(NUMERO);
+
+  //Con final (no puede cambiar despues de haber obtenido el valor, en tiempo de ejecución)
+  final fechaActual = DateTime.now();
+  print(fechaActual);
+
+  //Con const (Constante en tiempo compilación)
+  const PI = 3.1416;
+  print(PI);
+  const VELOCIDAD_LUZ = 299792458;
+  print(VELOCIDAD_LUZ);
+}
+```
+
+## Trying to Modify Constants (This Won't Work!)
+
+Once a constant is set, you cannot change its value:
+
+```dart
+const PI = 3.1416;
+// PI = 3.14159;  // ERROR! Cannot assign to const variable
+
+final nombre = 'Juan';
+// nombre = 'Maria';  // ERROR! Cannot assign to final variable
+```
+
+<Info>
+Both `const` and `final` prevent reassignment, but `const` is more restrictive as it requires the value to be known at compile time.
+</Info>
+
+## Practical Guidelines
+
+### Use `const` when:
+- The value is known before the program runs
+- You want maximum performance and memory efficiency
+- Defining mathematical or physical constants
+- Creating immutable collections with fixed values
+
+### Use `final` when:
+- The value is determined at runtime
+- Working with API calls, user input, or time-based values
+- You need a value to be set once but can't know it until the program runs
+- Referencing objects that are initialized during execution
+
+<Tip>
+As a general rule: prefer `const` when possible for better performance, but use `final` when you need runtime initialization.
+</Tip>
+
+## Benefits of Using Constants
+
+1. **Prevents accidental modification**: Once set, the value cannot be changed
+2. **Improves code readability**: Makes intent clear that the value shouldn't change
+3. **Performance optimization**: `const` values are computed once at compile time
+4. **Type safety**: Dart ensures the value matches the expected type
+5. **Memory efficiency**: `const` objects are canonicalized (shared across instances)

@@ -1,0 +1,157 @@
+---
+title: 'Assignment Operators'
+description: 'Learn how to use assignment operators in Dart to assign and modify variable values'
+---
+
+# Assignment Operators
+
+Assignment operators in Dart are used to assign values to variables and perform operations simultaneously.
+
+## Basic Assignment
+
+The basic assignment operator `=` assigns a value to a variable.
+
+```dart
+int x = 10;
+```
+
+## Compound Assignment Operators
+
+Compound assignment operators combine an arithmetic operation with assignment, providing a shorthand syntax.
+
+<CardGroup cols={2}>
+  <Card title="+= (Add and Assign)" icon="plus">
+    Adds a value and assigns the result
+  </Card>
+  <Card title="-= (Subtract and Assign)" icon="minus">
+    Subtracts a value and assigns the result
+  </Card>
+  <Card title="*= (Multiply and Assign)" icon="xmark">
+    Multiplies and assigns the result
+  </Card>
+  <Card title="/= (Divide and Assign)" icon="divide">
+    Divides and assigns the result
+  </Card>
+  <Card title="~/= (Integer Divide and Assign)" icon="divide">
+    Integer divides and assigns the result
+  </Card>
+  <Card title="%= (Modulo and Assign)" icon="percent">
+    Calculates modulo and assigns the result
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+Here's a practical example showing how assignment operators work in sequence:
+
+```dart
+void main() {
+  int x = 10;
+
+  x += 5;    // x = x + 5  → x = 15
+  x -= 3;    // x = x - 3  → x = 12
+  x *= 2;    // x = x * 2  → x = 24
+  x ~/= 4;   // x = x ~/ 4 → x = 6
+  print('Valor de X: $x');
+
+}
+```
+
+## Operator Breakdown
+
+### Addition Assignment (`+=`)
+Adds the right operand to the variable and assigns the result.
+
+```dart
+int x = 10;
+x += 5;  // Equivalent to: x = x + 5
+print(x);  // 15
+```
+
+### Subtraction Assignment (`-=`)
+Subtracts the right operand from the variable and assigns the result.
+
+```dart
+int x = 15;
+x -= 3;  // Equivalent to: x = x - 3
+print(x);  // 12
+```
+
+### Multiplication Assignment (`*=`)
+Multiplies the variable by the right operand and assigns the result.
+
+```dart
+int x = 12;
+x *= 2;  // Equivalent to: x = x * 2
+print(x);  // 24
+```
+
+### Division Assignment (`/=`)
+Divides the variable by the right operand and assigns the result as a double.
+
+```dart
+double x = 24;
+x /= 4;  // Equivalent to: x = x / 4
+print(x);  // 6.0
+```
+
+### Integer Division Assignment (`~/=`)
+Divides the variable by the right operand and assigns only the integer part.
+
+```dart
+int x = 24;
+x ~/= 4;  // Equivalent to: x = x ~/ 4
+print(x);  // 6
+```
+
+<Note>
+  The `~/=` operator is unique to Dart and performs integer division with assignment.
+</Note>
+
+### Modulo Assignment (`%=`)
+Calculates the remainder and assigns it to the variable.
+
+```dart
+int x = 10;
+x %= 3;  // Equivalent to: x = x % 3
+print(x);  // 1
+```
+
+## Benefits of Compound Operators
+
+<CardGroup cols={2}>
+  <Card title="Concise Code" icon="code">
+    Write less code with clearer intent
+  </Card>
+  <Card title="Readability" icon="book">
+    Makes the operation and assignment explicit
+  </Card>
+  <Card title="Performance" icon="gauge">
+    Can be more efficient in some cases
+  </Card>
+  <Card title="Convention" icon="check">
+    Standard practice in modern programming
+  </Card>
+</CardGroup>
+
+## Comparison
+
+<CodeGroup>
+```dart Long Form
+int counter = 0;
+counter = counter + 1;
+counter = counter * 2;
+counter = counter - 5;
+```
+
+```dart Short Form
+int counter = 0;
+counter += 1;
+counter *= 2;
+counter -= 5;
+```
+</CodeGroup>
+
+<Tip>
+  Compound assignment operators make your code more concise and often more readable, especially in loops and calculations.
+</Tip>

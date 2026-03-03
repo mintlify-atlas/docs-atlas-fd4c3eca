@@ -1,0 +1,124 @@
+---
+title: 'If Statements'
+description: 'Learn how to use if/else statements and nested conditions in Dart for decision making'
+---
+
+# If Statements
+
+If statements are the most common way to make decisions in Dart. They allow your program to execute different code based on whether a condition is true or false.
+
+## Basic Syntax
+
+The basic structure of an if/else statement:
+
+```dart
+if (condition) {
+  // Executes if the condition is TRUE
+} else {
+  // Executes if the condition is FALSE
+}
+```
+
+## Double Condition (If/Else)
+
+A double condition checks one condition and provides an alternative action:
+
+```dart
+int calificacion = 90;
+
+if (calificacion >= 60) {
+  print('Acredito');
+} else {
+  print('No acredito');
+}
+// Output: Acredito
+```
+
+In this example, if the grade (`calificacion`) is 60 or higher, it prints "Acredito" (Passed), otherwise it prints "No acredito" (Failed).
+
+## Simple Condition (If Only)
+
+You can use an if statement without an else clause when you only need to execute code for one specific condition:
+
+```dart
+int calificacion = 90;
+
+if (calificacion > 60 && calificacion < 80) {
+  print('Alumno Regular');
+}
+```
+
+<Note>
+  This example uses the logical AND operator (`&&`) to check if the grade is between 60 and 80.
+</Note>
+
+## Nested Conditions
+
+Nested conditions allow you to check multiple conditions in sequence:
+
+```dart
+int calificacion = 90;
+
+if (calificacion >= 90) {
+  print('Excelente');
+} else if (calificacion >= 80) {
+  print('Muy bien');
+} else if (calificacion >= 70) {
+  print('Bien');
+} else {
+  print('Necesita mejorar');
+}
+// Output: Excelente
+```
+
+<Steps>
+  <Step title="First Check">
+    If the grade is 90 or above, print "Excelente" (Excellent)
+  </Step>
+  <Step title="Second Check">
+    If not, check if the grade is 80 or above, print "Muy bien" (Very good)
+  </Step>
+  <Step title="Third Check">
+    If not, check if the grade is 70 or above, print "Bien" (Good)
+  </Step>
+  <Step title="Default">
+    If none of the above conditions are met, print "Necesita mejorar" (Needs improvement)
+  </Step>
+</Steps>
+
+## Complete Example
+
+Here's a complete working example demonstrating all if statement types:
+
+```dart
+void main() {
+  int calificacion = 90;
+
+  // Double Condition
+  if (calificacion >= 60) {
+    print('Acredito');
+  } else {
+    print('No acredito');
+  }
+
+  // Simple Condition
+  if (calificacion > 60 && calificacion < 80) {
+    print('Alumno Regular');
+  }
+
+  // Nested Conditions
+  if (calificacion >= 90) {
+    print('Excelente');
+  } else if (calificacion >= 80) {
+    print('Muy bien');
+  } else if (calificacion >= 70) {
+    print('Bien');
+  } else {
+    print('Necesita mejorar');
+  }
+}
+```
+
+<Warning>
+  When using nested conditions, make sure to order your conditions from most specific to least specific to avoid unexpected behavior.
+</Warning>

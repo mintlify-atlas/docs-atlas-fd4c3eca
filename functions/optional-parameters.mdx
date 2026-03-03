@@ -1,0 +1,109 @@
+---
+title: 'Optional Parameters'
+description: 'Learn how to use optional parameters with default values in Dart functions'
+---
+
+# Optional Parameters
+
+Optional parameters allow you to call functions with or without providing certain arguments. They are declared using square brackets `[]` and can have default values.
+
+## Syntax
+
+```dart
+returnType functionName(requiredParam, [optionalParam = defaultValue]) {
+  // Function body
+}
+```
+
+## Optional Parameter Example
+
+Here's a function with one required parameter and one optional parameter:
+
+```dart
+void mostrarInformacion(String nombre, [String ciudad = 'Sin Ciudad']) {
+  print('\nNombre: $nombre, Ciudad: $ciudad');
+}
+```
+
+## How Optional Parameters Work
+
+### Calling with Required Parameter Only
+
+When you omit the optional parameter, the default value is used:
+
+```dart
+mostrarInformacion('Pedro');
+// Output: Nombre: Pedro, Ciudad: Sin Ciudad
+```
+
+### Calling with Both Parameters
+
+You can provide a value for the optional parameter to override the default:
+
+```dart
+mostrarInformacion('Ana', 'Victoria');
+// Output: Nombre: Ana, Ciudad: Victoria
+```
+
+## Complete Example
+
+```dart
+void mostrarInformacion(String nombre, [String ciudad = 'Sin Ciudad']) {
+  print('\nNombre: $nombre, Ciudad: $ciudad');
+}
+
+void main() {
+  mostrarInformacion('Pedro');            // Ciudad: Sin Ciudad
+  mostrarInformacion('Ana', 'Victoria');  // Ciudad: Victoria
+}
+```
+
+### Output
+
+```
+Nombre: Pedro, Ciudad: Sin Ciudad
+
+Nombre: Ana, Ciudad: Victoria
+```
+
+<Note>
+Optional parameters must come after required parameters in the function signature. You cannot have required parameters after optional ones.
+</Note>
+
+## Key Points
+
+- Optional parameters are enclosed in square brackets `[]`
+- They must have default values using the `=` operator
+- Optional parameters must come after required parameters
+- You can have multiple optional parameters
+- Arguments for optional parameters are provided in order
+
+## Multiple Optional Parameters
+
+You can define multiple optional parameters:
+
+```dart
+void displayInfo(String name, [String city = 'Unknown', int age = 0]) {
+  print('Name: $name, City: $city, Age: $age');
+}
+
+// Usage:
+displayInfo('John');                    // Uses all defaults
+displayInfo('Jane', 'New York');        // Provides city
+displayInfo('Bob', 'London', 25);       // Provides all
+```
+
+<Warning>
+With positional optional parameters, you cannot skip parameters. If you want to provide the third parameter, you must also provide the second one.
+</Warning>
+
+<Tip>
+Optional parameters are useful when you want to provide sensible defaults while still allowing customization when needed.
+</Tip>
+
+## When to Use Optional Parameters
+
+- When a parameter has a sensible default value
+- When you want to make your API more flexible
+- When backward compatibility is important
+- To reduce the number of overloaded functions

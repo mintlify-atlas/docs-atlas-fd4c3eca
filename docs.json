@@ -1,122 +1,98 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Dart Programming Examples",
+  "theme": "palm",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "primary": "#0175C2",
+    "light": "#13B9FD",
+    "dark": "#01579B"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "type": "github",
+      "href": "https://github.com/NormandoRamirezDelgado/6D-Febrero-2026"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/NormandoRamirezDelgado/6D-Febrero-2026"
     }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction",
+          "setup"
+        ]
+      },
+      {
+        "group": "Fundamentals",
+        "pages": [
+          "fundamentals/hello-world",
+          "fundamentals/variables",
+          "fundamentals/data-types",
+          "fundamentals/constants"
+        ]
+      },
+      {
+        "group": "Operators",
+        "pages": [
+          "operators/arithmetic",
+          "operators/assignment",
+          "operators/comparison",
+          "operators/logical",
+          "operators/ternary"
+        ]
+      },
+      {
+        "group": "Control Flow",
+        "pages": [
+          "control-flow/if-statements",
+          "control-flow/type-conversion",
+          "control-flow/switch-statements"
+        ]
+      },
+      {
+        "group": "Loops",
+        "pages": [
+          "loops/for-loop",
+          "loops/while-loop",
+          "loops/do-while-loop",
+          "loops/examples"
+        ]
+      },
+      {
+        "group": "Functions",
+        "pages": [
+          "functions/basic-functions",
+          "functions/return-values",
+          "functions/parameters",
+          "functions/optional-parameters",
+          "functions/named-parameters",
+          "functions/arrow-functions"
+        ]
+      },
+      {
+        "group": "Collections",
+        "pages": [
+          "collections/lists",
+          "collections/list-operations",
+          "collections/list-iteration",
+          "collections/user-input",
+          "collections/maps",
+          "collections/map-operations",
+          "collections/advanced-maps"
+        ]
+      },
+      {
+        "group": "Examples & Exercises",
+        "pages": [
+          "examples/overview",
+          "examples/grade-calculator"
+        ]
+      }
+    ]
   }
 }

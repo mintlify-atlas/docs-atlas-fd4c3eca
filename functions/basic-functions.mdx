@@ -1,0 +1,78 @@
+---
+title: 'Basic Functions'
+description: 'Learn how to create and use basic functions without return values in Dart'
+---
+
+# Basic Functions
+
+Basic functions in Dart are declared with the `void` keyword when they don't return a value. These functions perform actions but don't send any data back to the caller.
+
+## Syntax
+
+```dart
+void functionName() {
+  // Function body
+}
+```
+
+## Simple Function Example
+
+Here's a basic function that prints a greeting message:
+
+```dart
+void saludar(){
+  print('Hola, estoy usando Funciones Básicas sin Retorno');
+}
+```
+
+## Calling Functions
+
+To execute a function, simply write its name followed by parentheses:
+
+```dart
+void main() {
+  // Single function call
+  saludar();
+}
+```
+
+## Complete Example
+
+Here's a complete example showing multiple function declarations and different ways to call them:
+
+```dart
+void saludar(){
+  print('Hola, estoy usando Funciones Básicas sin Retorno');
+}
+
+void imprimirBienvenida(){
+  print('Bienvenido a el uso de funciones en Dart');
+}
+
+void main() {
+  // Single function call
+  saludar();
+
+  // Function called inside a loop
+  for (var i = 0; i < 10; i++) {
+    saludar();
+  }
+
+  imprimirBienvenida();
+}
+```
+
+<Note>
+Functions with `void` return type don't use the `return` keyword to send data back. They simply execute their code and finish.
+</Note>
+
+## Key Points
+
+- Use `void` keyword for functions that don't return values
+- Functions can be called multiple times throughout your code
+- Functions can be called inside loops or other control structures
+- Function names should be descriptive of what they do
+
+<Tip>
+Basic functions are perfect for organizing repetitive tasks or actions that need to be performed multiple times in your code.
+</Tip>

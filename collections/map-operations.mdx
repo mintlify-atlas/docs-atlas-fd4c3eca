@@ -1,0 +1,201 @@
+---
+title: "Map Operations"
+description: "Learn how to iterate over Maps and perform advanced operations"
+---
+
+## Introduction
+
+Maps support various operations for working with key-value pairs, including iteration, searching, and manipulation.
+
+## Iterating with forEach()
+
+The `forEach()` method is the most common way to iterate over a map:
+
+```dart
+telefonos.forEach((nombre, telefono) {
+  print('$nombre: $telefono');
+});
+```
+
+<Note>
+  The forEach() method takes a function with two parameters: the key and the value of each entry.
+</Note>
+
+## Searching in Maps
+
+Check if a key exists before accessing it:
+
+```dart
+if (telefonos.containsKey('Juan')) {
+  print('\nTeléfono de Juan: ${telefonos['Juan']}');
+}
+```
+
+## Adding Multiple Entries
+
+You can add entries dynamically, such as from user input:
+
+```dart
+import 'dart:io';
+
+print('\nAgregar Contactos a la Agenda Telefonica:');
+String nombre = '';
+for (var i = 0; i < 3; i++) {
+  print('Nombre del Contacto:');
+  nombre = stdin.readLineSync()!;
+  print('Número de Telefono de $nombre:');
+  telefonos[nombre] = stdin.readLineSync()!;
+}
+```
+
+## Updating Values
+
+Update a value by reassigning to an existing key:
+
+```dart
+telefonos['Juan'] = '8340000000';
+```
+
+<Tip>
+  There's no difference in syntax between adding a new entry and updating an existing one. If the key exists, it updates; otherwise, it creates a new entry.
+</Tip>
+
+## Complete Example: Phone Book
+
+```dart
+import 'dart:io';
+
+void main() {
+  Map<String, String> telefonos = {
+    'Juan': '8764521111',
+    'María': '8764521222'
+  };
+
+  // Buscar
+  
+  if (telefonos.containsKey('Juan')) {
+    print('\nTeléfono de Juan: ${telefonos['Juan']}');
+  }
+
+  //Agregar Datos al Diccionario
+  print('\nAgregar Contactos a la Agenda Telefonica:');
+  String nombre = '';
+  for (var i = 0; i < 3; i++) {
+    print('Nombre del Contacto:');
+    nombre = stdin.readLineSync()!;
+    print('Número de Telefono de $nombre:');
+    telefonos[nombre] = stdin.readLineSync()!;
+  }
+
+  //Editar un Valor del Diccionario:
+  // telefonos['Juan'] = '8340000000';
+
+  // Iterar
+  print('\nRecorrido de un Diccionario:');
+  telefonos.forEach((nombre, telefono) {
+    print('$nombre: $telefono');
+  });
+  print('');
+}
+```
+
+## Working with Keys and Values
+
+### Iterate Over Keys Only
+
+```dart
+for (var key in edades.keys) {
+  print('Nombre: $key');
+}
+```
+
+### Iterate Over Values Only
+
+```dart
+for (var value in edades.values) {
+  print('Edad: $value');
+}
+```
+
+### Convert to Lists
+
+```dart
+List<String> nombres = edades.keys.toList();
+List<int> valores = edades.values.toList();
+```
+
+## Common Patterns
+
+### Safe Access
+
+Always check before accessing to avoid null:
+
+```dart
+if (telefonos.containsKey('Juan')) {
+  print(telefonos['Juan']);
+} else {
+  print('Contacto no encontrado');
+}
+```
+
+### Default Values
+
+Provide a default value if key doesn't exist:
+
+```dart
+String telefono = telefonos['Pedro'] ?? 'No disponible';
+```
+
+## Iteration Methods Comparison
+
+| Method | Use Case | Example |
+|--------|----------|----------|
+| **forEach()** | Iterate over both keys and values | `map.forEach((k, v) => print('$k: $v'))` |
+| **keys** | Iterate over keys only | `for (var key in map.keys)` |
+| **values** | Iterate over values only | `for (var val in map.values)` |
+| **entries** | Get key-value pairs | `for (var entry in map.entries)` |
+
+## Advanced Example: Contact Management
+
+Here's a more complete example with search, add, and display:
+
+```dart
+import 'dart:io';
+
+void main() {
+  Map<String, String> telefonos = {
+    'Juan': '8764521111',
+    'María': '8764521222'
+  };
+
+  // Buscar
+  if (telefonos.containsKey('Juan')) {
+    print('\nTeléfono de Juan: ${telefonos['Juan']}');
+  }
+
+  //Agregar Datos al Diccionario
+  print('\nAgregar Contactos a la Agenda Telefonica:');
+  String nombre = '';
+  for (var i = 0; i < 3; i++) {
+    print('Nombre del Contacto:');
+    nombre = stdin.readLineSync()!;
+    print('Número de Telefono de $nombre:');
+    telefonos[nombre] = stdin.readLineSync()!;
+  }
+
+  // Iterar
+  print('\nRecorrido de un Diccionario:');
+  telefonos.forEach((nombre, telefono) {
+    print('$nombre: $telefono');
+  });
+  print('');
+}
+```
+
+## Key Takeaways
+
+- Use `forEach()` to iterate over all key-value pairs
+- Always check `containsKey()` before accessing values
+- Use the `??` operator for default values
+- You can iterate over just keys or just values using `.keys` and `.values`
+- Adding and updating use the same syntax: `map[key] = value`

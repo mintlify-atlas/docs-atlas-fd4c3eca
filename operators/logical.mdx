@@ -1,0 +1,250 @@
+---
+title: 'Logical Operators'
+description: 'Learn how to use logical operators in Dart to combine and manipulate boolean expressions'
+---
+
+# Logical Operators
+
+Logical operators in Dart are used to combine multiple boolean expressions and perform logical operations.
+
+## Available Operators
+
+<CardGroup cols={3}>
+  <Card title="&& (AND)" icon="ampersand">
+    Returns true if both operands are true
+  </Card>
+  <Card title="|| (OR)" icon="bars">
+    Returns true if at least one operand is true
+  </Card>
+  <Card title="! (NOT)" icon="exclamation">
+    Inverts the boolean value
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+Here's an example demonstrating logical operators:
+
+```dart
+void main() {
+  bool esEstudiante = true;
+  bool tieneTitulo = false;
+  int edad = 28;
+         
+  print((edad > 18) || tieneTitulo);  // OR: true
+  //print(esEstudiante || (edad > 18));  // OR: true
+  print(!esEstudiante);                // NOT: false
+
+  /*
+    Tabla de verdad AND:
+    true  && true   = true
+    true  && false  = false
+    false && true   = false
+    false && false  = false
+  */
+
+}
+```
+
+## Operator Details
+
+### AND Operator (`&&`)
+Returns `true` only if **both** operands are `true`.
+
+```dart
+bool hasLicense = true;
+bool hasInsurance = true;
+
+if (hasLicense && hasInsurance) {
+  print('Can drive legally');
+}
+```
+
+#### Truth Table for AND
+
+| Left Operand | Right Operand | Result |
+|--------------|---------------|--------|
+| `true`       | `true`        | `true` |
+| `true`       | `false`       | `false`|
+| `false`      | `true`        | `false`|
+| `false`      | `false`       | `false`|
+
+<CodeGroup>
+```dart Example 1
+true && true   // true
+```
+
+```dart Example 2
+true && false  // false
+```
+
+```dart Example 3
+false && true  // false
+```
+
+```dart Example 4
+false && false // false
+```
+</CodeGroup>
+
+<Note>
+  The AND operator uses **short-circuit evaluation**: if the first operand is `false`, the second operand is not evaluated because the result will always be `false`.
+</Note>
+
+### OR Operator (`||`)
+Returns `true` if **at least one** operand is `true`.
+
+```dart
+int edad = 28;
+bool tieneTitulo = false;
+
+if ((edad > 18) || tieneTitulo) {
+  print('Eligible');  // This will print
+}
+```
+
+#### Truth Table for OR
+
+| Left Operand | Right Operand | Result |
+|--------------|---------------|--------|
+| `true`       | `true`        | `true` |
+| `true`       | `false`       | `true` |
+| `false`      | `true`        | `true` |
+| `false`      | `false`       | `false`|
+
+<CodeGroup>
+```dart Example 1
+true || true   // true
+```
+
+```dart Example 2
+true || false  // true
+```
+
+```dart Example 3
+false || true  // true
+```
+
+```dart Example 4
+false || false // false
+```
+</CodeGroup>
+
+<Note>
+  The OR operator also uses **short-circuit evaluation**: if the first operand is `true`, the second operand is not evaluated because the result will always be `true`.
+</Note>
+
+### NOT Operator (`!`)
+Inverts the boolean value: `true` becomes `false`, and `false` becomes `true`.
+
+```dart
+bool esEstudiante = true;
+print(!esEstudiante);  // false
+```
+
+#### Truth Table for NOT
+
+| Operand | Result |
+|---------|--------|
+| `true`  | `false`|
+| `false` | `true` |
+
+<CodeGroup>
+```dart Example 1
+!true   // false
+```
+
+```dart Example 2
+!false  // true
+```
+</CodeGroup>
+
+## Practical Examples
+
+<AccordionGroup>
+  <Accordion title="User Access Control">
+    ```dart
+    bool isAdmin = false;
+    bool isOwner = true;
+    bool canEdit = true;
+    
+    if ((isAdmin || isOwner) && canEdit) {
+      print('User can modify content');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Form Validation">
+    ```dart
+    bool hasUsername = true;
+    bool hasPassword = true;
+    bool hasEmail = false;
+    
+    if (hasUsername && hasPassword && hasEmail) {
+      print('Form is complete');
+    } else {
+      print('Please fill all required fields');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Age and Status Check">
+    ```dart
+    int age = 25;
+    bool isStudent = true;
+    bool hasDiscount = false;
+    
+    if ((age < 18 || age > 65) || isStudent || hasDiscount) {
+      print('Eligible for discount');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Negation Usage">
+    ```dart
+    bool isLoggedIn = false;
+    
+    if (!isLoggedIn) {
+      print('Please log in to continue');
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Combining Multiple Operators
+
+You can combine logical operators to create complex conditions:
+
+```dart
+int age = 25;
+bool hasLicense = true;
+bool hasInsurance = true;
+bool hasCar = false;
+
+if ((age >= 18 && hasLicense && hasInsurance) || hasCar) {
+  print('Can drive');
+}
+```
+
+<Tip>
+  Use parentheses to make complex logical expressions more readable and to control the order of evaluation.
+</Tip>
+
+## Short-Circuit Evaluation
+
+<Info>
+  Dart uses short-circuit evaluation for logical operators:
+  - For `&&`: If the first operand is `false`, the second is not evaluated
+  - For `||`: If the first operand is `true`, the second is not evaluated
+  
+  This can improve performance and prevent errors when the second operand might throw an exception.
+</Info>
+
+```dart
+String? name = null;
+
+// Safe: if name is null, length is not accessed
+if (name != null && name.length > 0) {
+  print('Valid name');
+}
+```

@@ -1,0 +1,140 @@
+---
+title: 'Arithmetic Operators'
+description: 'Learn how to use arithmetic operators in Dart for mathematical calculations'
+---
+
+# Arithmetic Operators
+
+Dart provides standard arithmetic operators for performing mathematical operations on numbers.
+
+## Available Operators
+
+<CardGroup cols={2}>
+  <Card title="Addition (+)" icon="plus">
+    Adds two numbers together
+  </Card>
+  <Card title="Subtraction (-)" icon="minus">
+    Subtracts one number from another
+  </Card>
+  <Card title="Multiplication (*)" icon="xmark">
+    Multiplies two numbers
+  </Card>
+  <Card title="Division (/)" icon="divide">
+    Divides and returns a double
+  </Card>
+  <Card title="Integer Division (~/)" icon="divide">
+    Divides and returns an integer
+  </Card>
+  <Card title="Modulo (%)" icon="percent">
+    Returns the remainder of division
+  </Card>
+</CardGroup>
+
+## Complete Example
+
+Here's a comprehensive example demonstrating all arithmetic operators:
+
+```dart
+void main() {
+  //Operadores Aritmétivos
+
+  int uno = 10;
+  int dos = 3;
+
+  print('Suma: ${uno + dos}');  // Suma: 13
+  print('Resta: ${uno - dos}');  // Resta: 7
+  print(uno * dos);  // Multiplicación: 30
+  print(uno / dos);  // División: 3.333...
+  print(uno ~/ dos); // División entera: 3
+  print(uno % dos);  // Módulo: 1
+
+}
+```
+
+## Operator Details
+
+### Addition (`+`)
+Adds two numbers and returns the sum.
+
+```dart
+int result = 10 + 3;  // 13
+```
+
+### Subtraction (`-`)
+Subtracts the second number from the first.
+
+```dart
+int result = 10 - 3;  // 7
+```
+
+### Multiplication (`*`)
+Multiplies two numbers together.
+
+```dart
+int result = 10 * 3;  // 30
+```
+
+### Division (`/`)
+Divides two numbers and returns a `double` result.
+
+```dart
+double result = 10 / 3;  // 3.3333333333333335
+```
+
+<Note>
+  The `/` operator always returns a `double`, even when dividing two integers.
+</Note>
+
+### Integer Division (`~/`)
+Divides two numbers and returns only the integer part, truncating any decimal.
+
+```dart
+int result = 10 ~/ 3;  // 3
+```
+
+<Tip>
+  Use `~/` when you need whole number division without decimals.
+</Tip>
+
+### Modulo (`%`)
+Returns the remainder after division.
+
+```dart
+int result = 10 % 3;  // 1
+```
+
+<Info>
+  The modulo operator is useful for checking if a number is even/odd or for cycling through values.
+</Info>
+
+## Common Use Cases
+
+<AccordionGroup>
+  <Accordion title="Check if a number is even or odd">
+    ```dart
+    int number = 10;
+    if (number % 2 == 0) {
+      print('Even');
+    } else {
+      print('Odd');
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Calculate average">
+    ```dart
+    int total = 100;
+    int count = 3;
+    double average = total / count;  // 33.333...
+    ```
+  </Accordion>
+  
+  <Accordion title="Split items into groups">
+    ```dart
+    int items = 10;
+    int groupSize = 3;
+    int fullGroups = items ~/ groupSize;  // 3
+    int remaining = items % groupSize;     // 1
+    ```
+  </Accordion>
+</AccordionGroup>

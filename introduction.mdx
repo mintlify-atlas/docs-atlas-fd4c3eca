@@ -1,0 +1,186 @@
+---
+title: "Welcome to Dart Programming Examples"
+description: "Master Dart programming from basics to advanced topics with 32 hands-on examples covering variables, control flow, functions, collections, and more."
+---
+
+# Welcome to Dart Programming Examples
+
+<Note>
+  This comprehensive collection features 32 progressive Dart examples designed to take you from your first "Hello World" to advanced data structure manipulation.
+</Note>
+
+## What You'll Learn
+
+Dart is a modern, object-oriented programming language developed by Google. This collection of examples will guide you through essential concepts with practical, runnable code that demonstrates real-world programming patterns.
+
+<CardGroup cols={2}>
+  <Card title="Fundamentals" icon="code">
+    Variables, data types, constants, and type inference with the `var` keyword
+  </Card>
+  <Card title="Operators" icon="calculator">
+    Arithmetic, assignment, comparison, logical, and ternary operators
+  </Card>
+  <Card title="Control Flow" icon="code-branch">
+    If/else statements, switch cases, and conditional logic
+  </Card>
+  <Card title="Loops" icon="rotate">
+    For loops, while loops, do-while loops, and iteration patterns
+  </Card>
+  <Card title="Functions" icon="function">
+    Basic functions, return values, parameters, optional and named parameters, arrow functions
+  </Card>
+  <Card title="Collections" icon="list">
+    Lists, Maps, dictionaries, and advanced data structure manipulation
+  </Card>
+</CardGroup>
+
+## Your Learning Path
+
+This documentation follows a progressive structure with 32 carefully ordered examples:
+
+### Getting Started (Examples 1-4)
+Start with the basics: your first program, variable naming conventions, data types, and constants.
+
+```dart
+void main() {
+  print('Hola Mundo!!!');
+}
+```
+
+### Operators (Examples 5-9)
+Master arithmetic, assignment, comparison, logical, and ternary operators.
+
+```dart
+// Arithmetic operations
+int suma = 10 + 5;
+int multiplicacion = 4 * 3;
+
+// Comparison operators
+bool esMayor = 10 > 5;  // true
+bool esIgual = 10 == 10; // true
+```
+
+### Control Flow (Examples 10-12)
+Learn decision-making with if/else statements, type conversions, and switch cases.
+
+```dart
+int calificacion = 90;
+
+if (calificacion >= 60) {
+  print('Acredito');
+} else {
+  print('No acredito');
+}
+```
+
+### Loops (Examples 13-16)
+Explore different iteration patterns including for, while, and do-while loops.
+
+```dart
+// Traditional for loop
+for (int i = 1; i <= 5; i++) {
+  print('Iteración $i');
+}
+
+// Custom increment
+for (var i = 0; i <= 10; i += 2) {
+  print('Iteración $i');
+}
+```
+
+### Functions (Examples 17-22)
+From basic functions to advanced parameter handling and arrow syntax.
+
+```dart
+// Basic function without return
+void saludar(){
+  print('Hola, estoy usando Funciones Básicas sin Retorno');
+}
+
+// Function with parameters
+void imprimirNombre(String nombre){
+  print('Hola, $nombre');
+}
+
+// Arrow function
+int duplicar(int numero) => numero * 2;
+```
+
+### Collections (Examples 23-32)
+Master Lists and Maps with practical operations: add, remove, search, and iterate.
+
+```dart
+// Lists
+List<int> numeros = [10, 20, 30];
+numeros.add(40);
+numeros.addAll([50, 60]);
+print('Tamaño: ${numeros.length}');
+print('Primer elemento: ${numeros.first}');
+
+// Maps (Dictionaries)
+Map<String, int> edades = {
+  'Juan': 17,
+  'María': 16,
+  'Carlos': 18
+};
+print(edades['Juan']); // 17
+```
+
+## Why Dart?
+
+<CardGroup cols={2}>
+  <Card title="Modern Syntax" icon="sparkles">
+    Clean, expressive syntax that's easy to learn and powerful to use
+  </Card>
+  <Card title="Type Safety" icon="shield-check">
+    Strong typing with type inference keeps your code safe and maintainable
+  </Card>
+  <Card title="Multi-Platform" icon="mobile">
+    Build for mobile, web, desktop, and server from a single codebase
+  </Card>
+  <Card title="Flutter Ready" icon="palette">
+    The foundation for Flutter, Google's UI toolkit for beautiful apps
+  </Card>
+</CardGroup>
+
+## Quick Start
+
+Ready to begin? Here's what you need:
+
+<Steps>
+  <Step title="Install Dart SDK">
+    Download and install the Dart SDK for your operating system
+  </Step>
+  <Step title="Set Up Your Editor">
+    Configure VS Code, IntelliJ IDEA, or Android Studio with Dart plugins
+  </Step>
+  <Step title="Run Your First Example">
+    Try the classic "Hello World" and start exploring!
+  </Step>
+</Steps>
+
+## Example Highlights
+
+### Advanced Collections Exercise
+
+Our final example (32) demonstrates a real-world scenario: a grade management system that calculates averages, finds best and worst subjects, and generates reports.
+
+```dart
+Map<String, List<int>> calificacionesMateria = {
+  'Matemáticas'  : [85, 90, 88],
+  'Español'      : [92, 88, 95],
+  'Inglés'       : [78, 82, 80],
+  'Programación' : [95, 98, 96]  
+};
+
+// Calculate averages, find best/worst subjects
+// Full working example in the advanced section!
+```
+
+<Note>
+  Each example in this collection is complete, runnable, and includes comments explaining key concepts. You can copy any example and run it immediately in your Dart environment.
+</Note>
+
+## Next Steps
+
+Continue to the [Setup Guide](/getting-started/setup) to configure your Dart development environment and start coding!
