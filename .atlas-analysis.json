@@ -1,0 +1,124 @@
+{
+  "projectType": "general",
+  "projectName": "Dart Programming Examples",
+  "projectDescription": "A comprehensive collection of Dart programming examples covering fundamental concepts from basic syntax to advanced data structures.",
+  "theme": "palm",
+  "primaryColor": "#0175C2",
+  "lightColor": "#13B9FD",
+  "darkColor": "#01579B",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction",
+          "setup"
+        ]
+      },
+      {
+        "group": "Fundamentals",
+        "pages": [
+          "fundamentals/hello-world",
+          "fundamentals/variables",
+          "fundamentals/data-types",
+          "fundamentals/constants"
+        ]
+      },
+      {
+        "group": "Operators",
+        "pages": [
+          "operators/arithmetic",
+          "operators/assignment",
+          "operators/comparison",
+          "operators/logical",
+          "operators/ternary"
+        ]
+      },
+      {
+        "group": "Control Flow",
+        "pages": [
+          "control-flow/if-statements",
+          "control-flow/type-conversion",
+          "control-flow/switch-statements"
+        ]
+      },
+      {
+        "group": "Loops",
+        "pages": [
+          "loops/for-loop",
+          "loops/while-loop",
+          "loops/do-while-loop",
+          "loops/examples"
+        ]
+      },
+      {
+        "group": "Functions",
+        "pages": [
+          "functions/basic-functions",
+          "functions/return-values",
+          "functions/parameters",
+          "functions/optional-parameters",
+          "functions/named-parameters",
+          "functions/arrow-functions"
+        ]
+      },
+      {
+        "group": "Collections",
+        "pages": [
+          "collections/lists",
+          "collections/list-operations",
+          "collections/list-iteration",
+          "collections/user-input",
+          "collections/maps",
+          "collections/map-operations",
+          "collections/advanced-maps"
+        ]
+      },
+      {
+        "group": "Examples & Exercises",
+        "pages": [
+          "examples/overview",
+          "examples/grade-calculator"
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "32 progressive Dart examples from beginner to intermediate",
+    "Complete coverage of Dart fundamentals including variables, operators, and data types",
+    "Control flow structures: if/else, switch, and all loop types",
+    "Function definitions with various parameter styles",
+    "Collection manipulation with Lists and Maps",
+    "Practical exercises and real-world examples"
+  ],
+  "publicApiSurface": [
+    "Hello World program",
+    "Variable naming and declarations",
+    "Data types: int, double, String, bool, dynamic",
+    "Constants with const and final",
+    "Arithmetic operators: +, -, *, /, %",
+    "Assignment operators: =, +=, -=, *=, /=",
+    "Comparison operators: ==, !=, >, <, >=, <=",
+    "Logical operators: &&, ||, !",
+    "Ternary operator: condition ? true : false",
+    "If/else statements and nested conditions",
+    "Type conversions: int.parse(), double.parse(), toString()",
+    "Switch statements",
+    "For loops",
+    "While loops",
+    "Do-while loops",
+    "Basic functions without return",
+    "Functions with return values",
+    "Functions with parameters",
+    "Optional parameters",
+    "Named parameters",
+    "Arrow functions",
+    "List creation and operations: add(), remove(), contains()",
+    "List properties: length, isEmpty, first, last",
+    "List iteration: for, for-in, forEach()",
+    "User input handling",
+    "Map creation and operations",
+    "Map iteration with forEach()",
+    "Nested data structures"
+  ]
+}
